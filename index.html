@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>المحللة رُقية - مختبر التحليلات المرضية</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .header {
+            background-color: #87CEEB;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            border-bottom: 5px solid #98FF98;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 2px solid #FFB6C1;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .booking-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            border: 2px solid #98FF98;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #98FF98;
+            color: #333;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #7FFF7F;
+        }
+
+        .price {
+            color: #FF69B4;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .footer {
+            background-color: #87CEEB;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        .decorative-pattern {
+            height: 20px;
+            background: repeating-linear-gradient(
+                45deg,
+                #FFB6C1,
+                #FFB6C1 10px,
+                #98FF98 10px,
+                #98FF98 20px
+            );
+        }
+
+        .instagram-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #FF69B4;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .instagram-link:hover {
+            background-color: #FF1493;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>المحللة رُقية</h1>
+        <p>مختبر التحليلات المرضية المتكامل</p>
+    </div>
+    <div class="decorative-pattern"></div>
+
+    <div class="container">
+        <h2 style="text-align: center; color: #4A7B6F; margin-bottom: 30px;">خدماتنا</h2>
+
+        <div class="services">
+            <div class="service-card">
+                <h3>تحليل الدم الشامل</h3>
+                <p>يشمل فحص مستويات الهيموجلوبين، كريات الدم البيضاء والحمراء</p>
+                <div class="price">السعر: 25,000 دينار</div>
+            </div>
+
+            <div class="service-card">
+                <h3>تحليل وظائف الكبد</h3>
+                <p>قياس إنزيمات الكبد ومستوى البيليروبين</p>
+                <div class="price">السعر: 35,000 دينار</div>
+            </div>
+
+            <div class="service-card">
+                <h3>تحليل السكر التراكمي</h3>
+                <p>قياس متوسط مستوى السكر في الدم خلال 3 أشهر</p>
+                <div class="price">السعر: 30,000 دينار</div>
+            </div>
+
+            <div class="service-card">
+                <h3>تحليل الغدة الدرقية</h3>
+                <p>فحص مستويات هرمونات الغدة الدرقية</p>
+                <div class="price">السعر: 40,000 دينار</div>
+            </div>
+
+            <div class="service-card">
+                <h3>تحليل فيتامين د</h3>
+                <p>قياس مستوى فيتامين د في الجسم</p>
+                <div class="price">السعر: 28,000 دينار</div>
+            </div>
+
+            <div class="service-card">
+                <h3>تحليل الكوليسترول</h3>
+                <p>قياس مستويات الدهون في الدم</p>
+                <div class="price">السعر: 27,000 دينار</div>
+            </div>
+        </div>
+
+        <div class="booking-form">
+            <h2 style="text-align: center; color: #4A7B6F; margin-bottom: 30px;">حجز موعد</h2>
+            <form>
+                <div class="form-group">
+                    <label>الاسم الكامل:</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label>رقم الجوال:</label>
+                    <input type="tel" required>
+                </div>
+
+                <div class="form-group">
+                    <label>نوع التحليل:</label>
+                    <select required>
+                        <option value="">اختر نوع التحليل</option>
+                        <option value="blood">تحليل الدم الشامل</option>
+                        <option value="liver">تحليل وظائف الكبد</option>
+                        <option value="diabetes">تحليل السكر التراكمي</option>
+                        <option value="thyroid">تحليل الغدة الدرقية</option>
+                        <option value="vitamind">تحليل فيتامين د</option>
+                        <option value="cholesterol">تحليل الكوليسترول</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>التاريخ المفضل:</label>
+                    <input type="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>الوقت المفضل:</label>
+                    <input type="time" required>
+                </div>
+
+                <button type="submit">تأكيد الحجز</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>تواصل معنا</p>
+        <a href="https://www.instagram.com/1ruqea_.z?igsh=YWo4MXI0NTR2MjM4" class="instagram-link" target="_blank">
+            الدكتورة رُقية على انستغرام
+        </a>
+    </div>
+</body>
+</html>

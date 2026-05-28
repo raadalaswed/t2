@@ -4,1463 +4,983 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>منصة تجهيزات التخرج 2027</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  /* ===== RESET & ROOT ===== */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --font-main: 'Cairo', 'Tajawal', sans-serif;
-    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --nav-h: 68px;
-
-    /* Light mode */
-    --bg-page: #f0f2f7;
-    --bg-card: #ffffff;
-    --bg-card2: #f8f9fc;
-    --bg-nav: rgba(255,255,255,0.92);
-    --text-primary: #0f1624;
-    --text-secondary: #4a5568;
-    --text-muted: #8898aa;
-    --border: rgba(0,0,0,0.08);
-    --border-strong: rgba(0,0,0,0.14);
-    --accent: #2563eb;
-    --accent-light: #eff6ff;
-    --accent-text: #1d4ed8;
-    --gold: #d97706;
-    --gold-light: #fffbeb;
-    --green: #059669;
-    --green-light: #ecfdf5;
-    --red: #dc2626;
-    --red-light: #fef2f2;
-    --purple: #7c3aed;
-    --purple-light: #f5f3ff;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
-    --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
-    --shadow-lg: 0 10px 40px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.05);
-    --hero-bg: linear-gradient(135deg, #1e3a6e 0%, #2563eb 50%, #1d4ed8 100%);
-  }
-
-  [data-theme="dark"] {
-    --bg-page: #0d1117;
-    --bg-card: #161b27;
-    --bg-card2: #1a2032;
-    --bg-nav: rgba(13,17,23,0.95);
-    --text-primary: #f0f6fc;
-    --text-secondary: #8b949e;
-    --text-muted: #6e7681;
-    --border: rgba(255,255,255,0.08);
-    --border-strong: rgba(255,255,255,0.14);
-    --accent: #58a6ff;
-    --accent-light: #0d2244;
-    --accent-text: #79c0ff;
-    --gold: #f59e0b;
-    --gold-light: #1c1400;
-    --green: #3fb950;
-    --green-light: #0d2018;
-    --red: #f85149;
-    --red-light: #1c0a0a;
-    --purple: #a78bfa;
-    --purple-light: #180f2e;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
-    --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
-    --shadow-lg: 0 10px 40px rgba(0,0,0,0.5);
-    --hero-bg: linear-gradient(135deg, #0d1117 0%, #1a2642 50%, #0f1e3d 100%);
-  }
-
-  html { scroll-behavior: smooth; font-size: 16px; }
-
-  body {
-    font-family: var(--font-main);
-    background: var(--bg-page);
-    color: var(--text-primary);
-    transition: background var(--transition), color var(--transition);
-    overflow-x: hidden;
-    direction: rtl;
-  }
-
-  /* ===== SCROLLBAR ===== */
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 99px; }
-
-  /* ===== NAV ===== */
-  nav {
-    position: fixed; top: 0; right: 0; left: 0; z-index: 1000;
-    background: var(--bg-nav);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    height: var(--nav-h);
-    display: flex; align-items: center;
-    transition: background var(--transition), box-shadow var(--transition);
-  }
-
-  nav.scrolled { box-shadow: var(--shadow-md); }
-
-  .nav-inner {
-    width: 100%; max-width: 1200px; margin: 0 auto;
-    padding: 0 1.5rem;
-    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  }
-
-  .nav-logo {
-    display: flex; align-items: center; gap: 0.5rem;
-    font-weight: 800; font-size: 1rem; color: var(--accent);
-    text-decoration: none;
-  }
-
-  .nav-logo-icon {
-    width: 34px; height: 34px; border-radius: 10px;
-    background: var(--accent);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem; color: white; flex-shrink: 0;
-  }
-
-  .nav-links {
-    display: flex; align-items: center; gap: 0.25rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    padding: 0.4rem 0.75rem;
-    border-radius: 8px;
-    font-size: 0.85rem; font-weight: 500;
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: all var(--transition);
-    white-space: nowrap;
-  }
-
-  .nav-links a:hover { background: var(--accent-light); color: var(--accent); }
-
-  .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
-
-  .btn-theme {
-    width: 38px; height: 38px; border-radius: 10px;
-    border: 1px solid var(--border-strong);
-    background: var(--bg-card);
-    cursor: pointer; font-size: 1rem;
-    display: flex; align-items: center; justify-content: center;
-    transition: all var(--transition); color: var(--text-secondary);
-    flex-shrink: 0;
-  }
-
-  .btn-theme:hover { background: var(--accent-light); color: var(--accent); border-color: var(--accent); }
-
-  .menu-btn {
-    display: none;
-    width: 38px; height: 38px; border-radius: 10px;
-    border: 1px solid var(--border-strong);
-    background: var(--bg-card);
-    cursor: pointer; font-size: 1.2rem;
-    align-items: center; justify-content: center;
-    color: var(--text-primary); flex-shrink: 0;
-  }
-
-  /* ===== MOBILE MENU ===== */
-  .mobile-menu {
-    display: none;
-    position: fixed; top: var(--nav-h); right: 0; left: 0; z-index: 999;
-    background: var(--bg-card);
-    border-bottom: 1px solid var(--border);
-    padding: 0.75rem 1.5rem 1rem;
-    flex-direction: column; gap: 0.25rem;
-    box-shadow: var(--shadow-lg);
-  }
-
-  .mobile-menu.open { display: flex; }
-
-  .mobile-menu a {
-    padding: 0.65rem 1rem;
-    border-radius: 10px;
-    font-size: 0.9rem; font-weight: 500;
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: all var(--transition);
-  }
-
-  .mobile-menu a:hover { background: var(--accent-light); color: var(--accent); }
-
-  /* ===== MAIN CONTENT ===== */
-  main { padding-top: var(--nav-h); }
-
-  .section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 5rem 1.5rem;
-  }
-
-  /* ===== HERO ===== */
-  .hero {
-    background: var(--hero-bg);
-    padding-top: calc(var(--nav-h) + 3rem);
-    padding-bottom: 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.05) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 50%);
-  }
-
-  .hero-grid {
-    position: absolute; inset: 0; opacity: 0.03;
-    background-image: linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-
-  .hero-inner {
-    max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
-    position: relative; z-index: 1;
-  }
-
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: rgba(255,255,255,0.9);
-    padding: 0.35rem 0.9rem;
-    border-radius: 99px;
-    font-size: 0.8rem; font-weight: 600;
-    margin-bottom: 1.5rem;
-    animation: fadeInDown 0.6s ease both;
-  }
-
-  .hero-title {
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 900;
-    color: white;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    animation: fadeInDown 0.6s 0.1s ease both;
-  }
-
-  .hero-title span { color: #93c5fd; }
-
-  .hero-desc {
-    font-size: 1.05rem; font-weight: 400;
-    color: rgba(255,255,255,0.75);
-    max-width: 500px;
-    line-height: 1.7;
-    margin-bottom: 2.5rem;
-    animation: fadeInDown 0.6s 0.2s ease both;
-  }
-
-  /* Countdown */
-  .countdown-wrap {
-    margin-bottom: 2.5rem;
-    animation: fadeInDown 0.6s 0.3s ease both;
-  }
-
-  .countdown-label {
-    font-size: 0.8rem; font-weight: 600;
-    color: rgba(255,255,255,0.6);
-    text-transform: uppercase; letter-spacing: 0.1em;
-    margin-bottom: 0.75rem;
-  }
-
-  .countdown {
-    display: flex; gap: 0.75rem; flex-wrap: wrap;
-  }
-
-  .cd-box {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 14px;
-    padding: 0.75rem 1.1rem;
-    text-align: center;
-    min-width: 70px;
-    backdrop-filter: blur(10px);
-  }
-
-  .cd-num {
-    font-size: 1.8rem; font-weight: 800; color: white;
-    line-height: 1;
-  }
-
-  .cd-lbl {
-    font-size: 0.65rem; color: rgba(255,255,255,0.6);
-    margin-top: 2px; font-weight: 500;
-  }
-
-  /* Hero Stats */
-  .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    gap: 1rem;
-    animation: fadeInUp 0.6s 0.4s ease both;
-  }
-
-  .hero-stat {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 16px;
-    padding: 1.1rem 1.2rem;
-    backdrop-filter: blur(12px);
-    transition: transform var(--transition), background var(--transition);
-  }
-
-  .hero-stat:hover { transform: translateY(-2px); background: rgba(255,255,255,0.14); }
-
-  .hero-stat-icon {
-    width: 36px; height: 36px; border-radius: 10px;
-    background: rgba(255,255,255,0.15);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem; margin-bottom: 0.6rem;
-  }
-
-  .hero-stat-val {
-    font-size: 1.4rem; font-weight: 800; color: white;
-    line-height: 1;
-  }
-
-  .hero-stat-lbl {
-    font-size: 0.75rem; color: rgba(255,255,255,0.65);
-    margin-top: 3px;
-  }
-
-  .stat-badge {
-    display: inline-block;
-    padding: 0.2rem 0.6rem;
-    border-radius: 99px;
-    font-size: 0.7rem; font-weight: 600;
-    background: rgba(52, 211, 153, 0.2);
-    color: #6ee7b7;
-    margin-top: 4px;
-  }
-
-  /* ===== SECTION HEADERS ===== */
-  .sec-header { margin-bottom: 2.5rem; }
-
-  .sec-eyebrow {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    font-size: 0.75rem; font-weight: 700;
-    color: var(--accent);
-    text-transform: uppercase; letter-spacing: 0.1em;
-    margin-bottom: 0.6rem;
-    background: var(--accent-light);
-    padding: 0.3rem 0.8rem;
-    border-radius: 99px;
-  }
-
-  .sec-title {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 800;
-    color: var(--text-primary);
-    margin-bottom: 0.6rem;
-    line-height: 1.3;
-  }
-
-  .sec-sub {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    max-width: 550px;
-  }
-
-  /* ===== CARDS ===== */
-  .card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 1.5rem;
-    transition: transform var(--transition), box-shadow var(--transition);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  /* ===== PACKAGES ===== */
-  .packages-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .pkg-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 22px;
-    padding: 0;
-    overflow: hidden;
-    transition: transform var(--transition), box-shadow var(--transition);
-    box-shadow: var(--shadow-sm);
-    position: relative;
-  }
-
-  .pkg-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .pkg-card.featured {
-    border: 2px solid var(--accent);
-  }
-
-  .pkg-header {
-    padding: 1.5rem 1.5rem 1rem;
-    position: relative;
-  }
-
-  .pkg-badge {
-    position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
-    background: var(--accent);
-    color: white;
-    font-size: 0.72rem; font-weight: 700;
-    padding: 0.3rem 1rem;
-    border-radius: 0 0 12px 12px;
-    white-space: nowrap;
-  }
-
-  .pkg-icon {
-    width: 48px; height: 48px; border-radius: 14px;
-    background: var(--accent-light);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    margin-top: 1.2rem;
-  }
-
-  .pkg-card.featured .pkg-icon { background: var(--accent); }
-
-  .pkg-name {
-    font-size: 1.1rem; font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 0.3rem;
-  }
-
-  .pkg-divider {
-    height: 1px; background: var(--border);
-    margin: 0 1.5rem;
-  }
-
-  .pkg-body { padding: 1.2rem 1.5rem; }
-
-  .pkg-items { list-style: none; margin-bottom: 1.2rem; }
-
-  .pkg-items li {
-    display: flex; align-items: center; gap: 0.6rem;
-    padding: 0.45rem 0;
-    font-size: 0.9rem; color: var(--text-secondary);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .pkg-items li:last-child { border-bottom: none; }
-
-  .pkg-check {
-    width: 20px; height: 20px; border-radius: 6px;
-    background: var(--green-light);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.7rem; color: var(--green);
-    flex-shrink: 0;
-  }
-
-  .pkg-price-row {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 0.5rem; margin-top: 1.2rem;
-  }
-
-  .pkg-price {
-    font-size: 1.5rem; font-weight: 800;
-    color: var(--text-primary);
-  }
-
-  .pkg-price span {
-    font-size: 0.75rem; font-weight: 500;
-    color: var(--text-muted);
-  }
-
-  .btn-pkg {
-    padding: 0.55rem 1.2rem;
-    border-radius: 10px;
-    font-family: var(--font-main);
-    font-size: 0.85rem; font-weight: 600;
-    cursor: pointer;
-    border: none;
-    transition: all var(--transition);
-  }
-
-  .btn-pkg-outline {
-    background: transparent;
-    border: 1.5px solid var(--accent);
-    color: var(--accent);
-  }
-
-  .btn-pkg-outline:hover { background: var(--accent-light); }
-
-  .btn-pkg-fill {
-    background: var(--accent);
-    color: white;
-  }
-
-  .btn-pkg-fill:hover { opacity: 0.88; transform: scale(0.98); }
-
-  .pkg-note {
-    margin: 1rem 1.5rem 1.5rem;
-    background: var(--gold-light);
-    border: 1px solid rgba(217,119,6,0.2);
-    border-right: 3px solid var(--gold);
-    border-radius: 0 10px 10px 0;
-    padding: 0.85rem 1rem;
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
-  .pkg-note strong { color: var(--gold); }
-
-  /* ===== DEPOSIT CARD ===== */
-  .deposit-card {
-    background: linear-gradient(135deg, var(--accent) 0%, #1d4ed8 100%);
-    border-radius: 22px;
-    padding: 2rem;
-    color: white;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .deposit-card::after {
-    content: '💰';
-    position: absolute;
-    font-size: 8rem;
-    left: -1rem; bottom: -1.5rem;
-    opacity: 0.08;
-  }
-
-  .deposit-card h3 { font-size: 1rem; font-weight: 600; opacity: 0.85; margin-bottom: 0.5rem; }
-
-  .deposit-amount {
-    font-size: 3rem; font-weight: 900;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-
-  .deposit-amount span { font-size: 1.2rem; opacity: 0.7; }
-
-  .deposit-desc {
-    font-size: 0.88rem; opacity: 0.8;
-    line-height: 1.7;
-    max-width: 420px;
-  }
-
-  /* ===== ROBE FORM SECTION ===== */
-  .robe-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 22px;
-    padding: 2rem;
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    flex-wrap: wrap;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .robe-icon {
-    width: 72px; height: 72px; border-radius: 18px;
-    background: var(--purple-light);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2rem;
-    flex-shrink: 0;
-  }
-
-  .robe-content { flex: 1; min-width: 200px; }
-
-  .robe-content h3 {
-    font-size: 1.2rem; font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
-  }
-
-  .robe-content p {
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-  }
-
-  /* ===== BUTTONS ===== */
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.7rem 1.5rem;
-    background: var(--accent);
-    color: white;
-    border: none; border-radius: 12px;
-    font-family: var(--font-main);
-    font-size: 0.9rem; font-weight: 700;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all var(--transition);
-    white-space: nowrap;
-  }
-
-  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(37,99,235,0.35); }
-
-  .btn-secondary {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.7rem 1.5rem;
-    background: var(--accent-light);
-    color: var(--accent);
-    border: 1.5px solid var(--accent);
-    border-radius: 12px;
-    font-family: var(--font-main);
-    font-size: 0.9rem; font-weight: 700;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all var(--transition);
-    white-space: nowrap;
-  }
-
-  .btn-secondary:hover { background: var(--accent); color: white; transform: translateY(-1px); }
-
-  .btn-purple {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.7rem 1.5rem;
-    background: var(--purple);
-    color: white;
-    border: none; border-radius: 12px;
-    font-family: var(--font-main);
-    font-size: 0.9rem; font-weight: 700;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all var(--transition);
-    white-space: nowrap;
-  }
-
-  .btn-purple:hover { opacity: 0.88; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(124,58,237,0.3); }
-
-  /* ===== REGISTRATION SECTION ===== */
-  .reg-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-
-  @media (max-width: 768px) { .reg-grid { grid-template-columns: 1fr; } }
-
-  .timeline { list-style: none; }
-
-  .timeline-item {
-    display: flex; gap: 1rem;
-    padding-bottom: 1.2rem;
-    position: relative;
-  }
-
-  .timeline-item::after {
-    content: '';
-    position: absolute;
-    right: 17px; top: 32px;
-    width: 2px; height: calc(100% - 16px);
-    background: var(--border);
-  }
-
-  .timeline-item:last-child::after { display: none; }
-  .timeline-item:last-child { padding-bottom: 0; }
-
-  .tl-dot {
-    width: 34px; height: 34px; border-radius: 10px;
-    background: var(--accent-light);
-    border: 1.5px solid var(--accent);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.85rem; color: var(--accent);
-    flex-shrink: 0; z-index: 1;
-  }
-
-  .tl-content { padding-top: 0.35rem; }
-
-  .tl-title {
-    font-size: 0.9rem; font-weight: 600;
-    color: var(--text-primary);
-  }
-
-  .tl-sub {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    margin-top: 2px;
-  }
-
-  /* Alert */
-  .alert {
-    display: flex; align-items: flex-start; gap: 0.75rem;
-    padding: 1rem 1.2rem;
-    border-radius: 14px;
-    font-size: 0.88rem; line-height: 1.6;
-  }
-
-  .alert-info {
-    background: var(--accent-light);
-    border: 1px solid rgba(37,99,235,0.15);
-    color: var(--accent-text);
-  }
-
-  .alert-warning {
-    background: var(--gold-light);
-    border: 1px solid rgba(217,119,6,0.15);
-    color: #92400e;
-  }
-
-  [data-theme="dark"] .alert-warning { color: #fcd34d; }
-
-  .alert-green {
-    background: var(--green-light);
-    border: 1px solid rgba(5,150,105,0.15);
-    color: #065f46;
-  }
-
-  [data-theme="dark"] .alert-green { color: #6ee7b7; }
-
-  .alert-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.05rem; }
-
-  /* Info cards inside reg */
-  .date-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 1.5rem;
-    box-shadow: var(--shadow-sm);
-    height: 100%;
-  }
-
-  .after-list { list-style: none; margin: 1rem 0; }
-
-  .after-list li {
-    display: flex; align-items: center; gap: 0.6rem;
-    padding: 0.5rem 0;
-    font-size: 0.88rem; color: var(--text-secondary);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .after-list li:last-child { border-bottom: none; }
-
-  .after-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--accent); flex-shrink: 0;
-  }
-
-  /* ===== HOODIE SECTION ===== */
-  .hoodie-card {
-    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
-    border-radius: 22px;
-    padding: 2rem;
-    color: white;
-    display: flex; gap: 2rem; align-items: center;
-    flex-wrap: wrap;
-    position: relative; overflow: hidden;
-    box-shadow: var(--shadow-lg);
-  }
-
-  .hoodie-card::before {
-    content: '🎉';
-    position: absolute;
-    font-size: 7rem; right: -1rem; top: -1rem;
-    opacity: 0.1;
-  }
-
-  .hoodie-icon {
-    width: 64px; height: 64px; border-radius: 18px;
-    background: rgba(255,255,255,0.15);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.8rem; flex-shrink: 0;
-  }
-
-  .hoodie-content { flex: 1; min-width: 200px; }
-
-  .hoodie-content h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.4rem; }
-
-  .hoodie-content p { font-size: 0.88rem; opacity: 0.8; line-height: 1.6; margin-bottom: 1rem; }
-
-  .btn-white {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.65rem 1.4rem;
-    background: white;
-    color: #7c3aed;
-    border: none; border-radius: 10px;
-    font-family: var(--font-main);
-    font-size: 0.85rem; font-weight: 700;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all var(--transition);
-    white-space: nowrap;
-  }
-
-  .btn-white:hover { transform: scale(0.97); opacity: 0.95; }
-
-  /* ===== FAQ ===== */
-  .faq-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
-
-  .faq-item {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .faq-q {
-    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-    padding: 1rem 1.25rem;
-    cursor: pointer;
-    font-size: 0.92rem; font-weight: 600;
-    color: var(--text-primary);
-    transition: background var(--transition);
-    user-select: none;
-  }
-
-  .faq-q:hover { background: var(--bg-card2); }
-
-  .faq-arrow {
-    width: 26px; height: 26px; border-radius: 8px;
-    background: var(--accent-light);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.75rem; color: var(--accent);
-    transition: transform var(--transition);
-    flex-shrink: 0;
-  }
-
-  .faq-item.open .faq-arrow { transform: rotate(180deg); }
-
-  .faq-a {
-    max-height: 0; overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.3s ease;
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-  }
-
-  .faq-item.open .faq-a {
-    max-height: 200px;
-    padding: 0 1.25rem 1.1rem;
-  }
-
-  /* ===== FOOTER ===== */
-  footer {
-    background: var(--bg-card);
-    border-top: 1px solid var(--border);
-    text-align: center;
-    padding: 2rem 1.5rem;
-  }
-
-  footer p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    font-weight: 500;
-  }
-
-  footer p strong { color: var(--text-secondary); }
-
-  /* ===== BACK TO TOP ===== */
-  #back-top {
-    position: fixed; bottom: 1.5rem; left: 1.5rem;
-    width: 44px; height: 44px; border-radius: 12px;
-    background: var(--accent);
-    color: white; border: none;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem;
-    cursor: pointer; z-index: 999;
-    box-shadow: var(--shadow-md);
-    transition: all var(--transition);
-    opacity: 0; pointer-events: none;
-    transform: translateY(10px);
-  }
-
-  #back-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
-  #back-top:hover { transform: translateY(-2px) scale(1.05); }
-
-  /* ===== ANIMATIONS ===== */
-  @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-18px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(18px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  .reveal {
-    opacity: 0; transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  .reveal-d1 { transition-delay: 0.1s; }
-  .reveal-d2 { transition-delay: 0.2s; }
-  .reveal-d3 { transition-delay: 0.3s; }
-
-  /* ===== SECTION DIVIDER ===== */
-  .section-divider {
-    height: 1px; background: var(--border);
-    max-width: 1200px; margin: 0 auto;
-  }
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .menu-btn { display: flex; }
-  }
-
-  @media (max-width: 640px) {
-    .hero { padding-top: calc(var(--nav-h) + 1.5rem); padding-bottom: 2.5rem; }
-    .section { padding: 3rem 1.25rem; }
-    .deposit-amount { font-size: 2.3rem; }
-    .robe-card { flex-direction: column; gap: 1.2rem; }
-    .hoodie-card { flex-direction: column; }
-    .hoodie-card::before { display: none; }
-  }
-
-  @media (max-width: 480px) {
-    .hero-stats { grid-template-columns: 1fr 1fr; }
-    .cd-box { min-width: 58px; padding: 0.6rem 0.8rem; }
-    .cd-num { font-size: 1.5rem; }
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --font:'Cairo',sans-serif;
+  --tr:0.28s cubic-bezier(.4,0,.2,1);
+  --nav:64px;
+
+  /* light */
+  --page:#f1f3f8;
+  --card:#ffffff;
+  --card2:#f6f8fc;
+  --nav-bg:rgba(255,255,255,0.94);
+  --t1:#0d1320;
+  --t2:#4a5568;
+  --t3:#8898aa;
+  --bd:rgba(0,0,0,0.07);
+  --bd2:rgba(0,0,0,0.13);
+  --blue:#2563eb;
+  --blue-l:#eff6ff;
+  --blue-t:#1d4ed8;
+  --gold:#d97706;
+  --gold-l:#fffbeb;
+  --green:#059669;
+  --green-l:#ecfdf5;
+  --purple:#7c3aed;
+  --purple-l:#f5f3ff;
+  --s1:0 1px 4px rgba(0,0,0,0.07);
+  --s2:0 4px 20px rgba(0,0,0,0.09);
+  --s3:0 12px 40px rgba(0,0,0,0.13);
+}
+
+[data-theme=dark]{
+  --page:#0d1117;
+  --card:#161c2b;
+  --card2:#1c2336;
+  --nav-bg:rgba(13,17,23,0.96);
+  --t1:#eaf0fb;
+  --t2:#8b96a8;
+  --t3:#5e6a7a;
+  --bd:rgba(255,255,255,0.07);
+  --bd2:rgba(255,255,255,0.13);
+  --blue:#4d8ef5;
+  --blue-l:#0d1e3d;
+  --blue-t:#7eb3ff;
+  --gold:#f59e0b;
+  --gold-l:#1c1200;
+  --green:#34d399;
+  --green-l:#0a2018;
+  --purple:#a78bfa;
+  --purple-l:#1a0f2e;
+  --s1:0 1px 4px rgba(0,0,0,0.4);
+  --s2:0 4px 20px rgba(0,0,0,0.4);
+  --s3:0 12px 40px rgba(0,0,0,0.5);
+}
+
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font);background:var(--page);color:var(--t1);transition:background var(--tr),color var(--tr);overflow-x:hidden;direction:rtl}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:99px}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;right:0;left:0;z-index:900;
+  height:var(--nav);
+  background:var(--nav-bg);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--bd);
+  display:flex;align-items:center;
+  transition:box-shadow var(--tr);
+}
+nav.scrolled{box-shadow:var(--s2)}
+.nav-in{width:100%;max-width:1100px;margin:0 auto;padding:0 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem}
+.nav-logo{display:flex;align-items:center;gap:.55rem;text-decoration:none;font-weight:800;font-size:.95rem;color:var(--blue)}
+.nav-logo-box{width:34px;height:34px;border-radius:10px;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff;flex-shrink:0}
+.nav-r{display:flex;align-items:center;gap:.5rem}
+.icon-btn{width:36px;height:36px;border-radius:9px;border:1px solid var(--bd2);background:var(--card);cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;color:var(--t2);transition:all var(--tr);flex-shrink:0}
+.icon-btn:hover{background:var(--blue-l);color:var(--blue);border-color:var(--blue)}
+
+/* ── MAIN / SECTIONS ── */
+main{padding-top:var(--nav)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.4rem}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(140deg,#1a2e5a 0%,#2563eb 60%,#1e40af 100%);
+  padding:3.5rem 0 3rem;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 20% 60%,rgba(255,255,255,.05) 0%,transparent 55%);
+}
+.hero-dots{
+  position:absolute;inset:0;opacity:.04;
+  background-image:radial-gradient(rgba(255,255,255,.8) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.hero-in{position:relative;z-index:1}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+  color:rgba(255,255,255,.9);padding:.3rem .85rem;border-radius:99px;
+  font-size:.75rem;font-weight:700;margin-bottom:1.2rem;
+  animation:fdU .5s ease both;
+}
+.hero-title{font-size:clamp(1.7rem,4.5vw,2.7rem);font-weight:900;color:#fff;line-height:1.25;margin-bottom:.7rem;animation:fdU .5s .08s ease both}
+.hero-title span{color:#93c5fd}
+.hero-sub{font-size:.93rem;color:rgba(255,255,255,.72);line-height:1.7;max-width:480px;margin-bottom:2rem;animation:fdU .5s .15s ease both}
+
+/* quick pills */
+.hero-pills{display:flex;flex-wrap:wrap;gap:.65rem;animation:fdU .5s .22s ease both}
+.pill{
+  display:flex;align-items:center;gap:.45rem;
+  background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.16);
+  border-radius:12px;padding:.6rem 1rem;color:#fff;
+  transition:background var(--tr);
+}
+.pill:hover{background:rgba(255,255,255,.18)}
+.pill-ico{font-size:1.1rem}
+.pill-val{font-size:1rem;font-weight:800;line-height:1}
+.pill-lbl{font-size:.67rem;color:rgba(255,255,255,.6);margin-top:1px}
+
+/* ── SECTION HEADER ── */
+.sh{margin-bottom:1.8rem}
+.sh-eye{display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);background:var(--blue-l);padding:.28rem .75rem;border-radius:99px;margin-bottom:.55rem}
+.sh-title{font-size:clamp(1.3rem,3vw,1.75rem);font-weight:800;color:var(--t1);line-height:1.3;margin-bottom:.35rem}
+.sh-sub{font-size:.88rem;color:var(--t2);line-height:1.7;max-width:520px}
+
+/* ── SECTIONS SPACING ── */
+.sec{padding:4rem 0}
+.sec+.sec{border-top:1px solid var(--bd)}
+
+/* ── CARD GRID (home panels) ── */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+
+.nav-card{
+  background:var(--card);border:1px solid var(--bd);border-radius:18px;
+  padding:1.5rem;cursor:pointer;
+  transition:transform var(--tr),box-shadow var(--tr),border-color var(--tr);
+  box-shadow:var(--s1);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;gap:.7rem;
+  text-align:right;
+}
+.nav-card:hover{transform:translateY(-3px);box-shadow:var(--s3);border-color:var(--bd2)}
+.nav-card.blue-accent{border-right:3px solid var(--blue)}
+.nav-card.gold-accent{border-right:3px solid var(--gold)}
+.nav-card.green-accent{border-right:3px solid var(--green)}
+.nav-card.purple-accent{border-right:3px solid var(--purple)}
+
+.nc-ico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.nc-ico.blue{background:var(--blue-l)}
+.nc-ico.gold{background:var(--gold-l)}
+.nc-ico.green{background:var(--green-l)}
+.nc-ico.purple{background:var(--purple-l)}
+
+.nc-title{font-size:1rem;font-weight:700;color:var(--t1)}
+.nc-desc{font-size:.8rem;color:var(--t2);line-height:1.6}
+.nc-arrow{
+  align-self:flex-start;
+  width:28px;height:28px;border-radius:8px;
+  background:var(--page);border:1px solid var(--bd);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;color:var(--t3);margin-top:.2rem;
+  transition:all var(--tr);
+}
+.nav-card:hover .nc-arrow{background:var(--blue);border-color:var(--blue);color:#fff}
+
+/* ── PANEL (detail view) ── */
+.panel{display:none;animation:fdU .35s ease}
+.panel.active{display:block}
+
+.panel-back{
+  display:inline-flex;align-items:center;gap:.5rem;
+  cursor:pointer;font-size:.85rem;font-weight:600;
+  color:var(--t2);margin-bottom:1.5rem;padding:.4rem .75rem;
+  border-radius:9px;background:var(--card);border:1px solid var(--bd);
+  transition:all var(--tr);
+}
+.panel-back:hover{background:var(--blue-l);color:var(--blue);border-color:var(--blue)}
+
+/* ── GENERIC CARD ── */
+.box{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:1.5rem;box-shadow:var(--s1)}
+.box+.box{margin-top:1rem}
+
+/* ── DEPOSIT HIGHLIGHT ── */
+.deposit-hero{
+  background:linear-gradient(135deg,var(--blue) 0%,#1d4ed8 100%);
+  border-radius:20px;padding:2rem;color:#fff;
+  position:relative;overflow:hidden;
+}
+.deposit-hero::after{content:'💳';position:absolute;font-size:7rem;left:-1rem;bottom:-1.5rem;opacity:.08}
+.deposit-hero h3{font-size:.85rem;font-weight:600;opacity:.8;margin-bottom:.4rem}
+.dh-amount{font-size:2.8rem;font-weight:900;line-height:1;margin-bottom:.5rem}
+.dh-amount small{font-size:1rem;opacity:.6}
+.dh-note{font-size:.83rem;opacity:.78;line-height:1.7;max-width:440px}
+.dh-calc{
+  margin-top:1.2rem;
+  display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;
+}
+.dh-calc-box{
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);
+  border-radius:12px;padding:.7rem 1rem;text-align:center;min-width:100px;
+}
+.dh-calc-box .val{font-size:1.15rem;font-weight:800}
+.dh-calc-box .lbl{font-size:.68rem;opacity:.65;margin-top:2px}
+.arrow-sep{font-size:1.3rem;opacity:.5}
+
+/* ── PHOTOGRAPHER DETAILS ── */
+.detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.detail-box{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:1.3rem;box-shadow:var(--s1)}
+.detail-box h4{font-size:.82rem;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.8rem}
+.detail-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.detail-list li{display:flex;align-items:flex-start;gap:.55rem;font-size:.85rem;color:var(--t2);line-height:1.5}
+.dl-dot{width:20px;height:20px;border-radius:6px;background:var(--blue-l);display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--blue);flex-shrink:0;margin-top:1px}
+
+.price-banner{
+  background:var(--green-l);border:1px solid rgba(5,150,105,.2);border-right:3px solid var(--green);
+  border-radius:14px;padding:1rem 1.2rem;
+  display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;
+}
+.price-banner .big{font-size:1.8rem;font-weight:900;color:var(--green)}
+.price-banner .lbl{font-size:.82rem;color:var(--t2);line-height:1.5}
+
+/* ── ALERT ── */
+.alert{display:flex;align-items:flex-start;gap:.7rem;padding:.9rem 1.1rem;border-radius:12px;font-size:.83rem;line-height:1.6;margin-top:1rem}
+.alert-warning{background:var(--gold-l);border:1px solid rgba(217,119,6,.15);color:#92400e}
+[data-theme=dark] .alert-warning{color:#fcd34d}
+.alert-info{background:var(--blue-l);border:1px solid rgba(37,99,235,.15);color:var(--blue-t)}
+.alert-green{background:var(--green-l);border:1px solid rgba(5,150,105,.15);color:#065f46}
+[data-theme=dark] .alert-green{color:#6ee7b7}
+.alert-ico{flex-shrink:0;margin-top:1px;font-size:1rem}
+
+/* ── ROBE SECTION ── */
+.robe-color-badge{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:var(--gold-l);border:1px solid rgba(217,119,6,.2);
+  color:var(--gold);padding:.35rem .8rem;border-radius:99px;
+  font-size:.78rem;font-weight:700;margin-bottom:.8rem;
+}
+
+/* ── REGISTRATION STEPS ── */
+.steps{display:flex;flex-direction:column;gap:.75rem}
+.step{
+  display:flex;gap:1rem;align-items:flex-start;
+  background:var(--card);border:1px solid var(--bd);border-radius:14px;
+  padding:1rem 1.2rem;box-shadow:var(--s1);
+}
+.step-num{
+  width:34px;height:34px;border-radius:10px;
+  background:var(--blue-l);border:1.5px solid var(--blue);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;font-weight:800;color:var(--blue);flex-shrink:0;
+}
+.step-body{}
+.step-title{font-size:.9rem;font-weight:700;color:var(--t1);margin-bottom:.2rem}
+.step-desc{font-size:.78rem;color:var(--t2);line-height:1.5}
+
+/* ── CTA BUTTON ── */
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.7rem 1.5rem;border-radius:11px;
+  font-family:var(--font);font-size:.88rem;font-weight:700;
+  cursor:pointer;text-decoration:none;border:none;
+  transition:all var(--tr);white-space:nowrap;
+}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{opacity:.88;transform:translateY(-1px);box-shadow:0 4px 20px rgba(37,99,235,.3)}
+.btn-purple{background:var(--purple);color:#fff}
+.btn-purple:hover{opacity:.88;transform:translateY(-1px)}
+.btn-full{width:100%;justify-content:center;padding:.85rem;font-size:.95rem}
+
+/* ── HOODIE ── */
+.hoodie-card{
+  background:linear-gradient(135deg,#6d28d9 0%,#7c3aed 100%);
+  border-radius:20px;padding:2rem;color:#fff;
+  position:relative;overflow:hidden;
+}
+.hoodie-card::before{content:'🎉';position:absolute;font-size:7rem;left:-1rem;top:-1rem;opacity:.09}
+
+/* ── FAQ ── */
+.faq-list{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.faq-item{background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden;box-shadow:var(--s1)}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:.95rem 1.15rem;cursor:pointer;
+  font-size:.88rem;font-weight:600;color:var(--t1);
+  transition:background var(--tr);user-select:none;
+}
+.faq-q:hover{background:var(--card2)}
+.faq-arr{
+  width:24px;height:24px;border-radius:7px;
+  background:var(--blue-l);display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;color:var(--blue);flex-shrink:0;
+  transition:transform var(--tr);
+}
+.faq-item.open .faq-arr{transform:rotate(180deg)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .38s ease,padding .28s ease;
+  font-size:.83rem;color:var(--t2);line-height:1.7;
+}
+.faq-item.open .faq-a{max-height:220px;padding:0 1.15rem 1rem}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:2rem 1.4rem;border-top:1px solid var(--bd)}
+footer p{font-size:.85rem;color:var(--t3)}
+footer strong{color:var(--t2)}
+
+/* ── BACK TO TOP ── */
+#btt{
+  position:fixed;bottom:1.4rem;left:1.4rem;z-index:800;
+  width:42px;height:42px;border-radius:11px;
+  background:var(--blue);color:#fff;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+  box-shadow:var(--s2);transition:all var(--tr);
+  opacity:0;pointer-events:none;transform:translateY(8px);
+}
+#btt.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+#btt:hover{transform:translateY(-2px) scale(1.05)}
+
+/* ── HOME / PANEL TOGGLE ── */
+#home-view{display:block}
+
+/* ── ANIMATIONS ── */
+@keyframes fdU{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fdIn{from{opacity:0}to{opacity:1}}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.reveal.vis{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ── DIVIDER ── */
+hr.div{border:none;border-top:1px solid var(--bd);margin:0}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .hero{padding:2.5rem 0 2rem}
+  .hero-title{font-size:1.7rem}
+  .sec{padding:2.8rem 0}
+  .dh-amount{font-size:2.1rem}
+  .detail-grid{grid-template-columns:1fr}
+  .card-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:400px){
+  .card-grid{grid-template-columns:1fr}
+  .pill{min-width:140px}
+}
 </style>
 </head>
 <body>
 
-<!-- ===== NAV ===== -->
+<!-- ══ NAV ══ -->
 <nav id="navbar">
-  <div class="nav-inner">
-    <a href="#top" class="nav-logo">
-      <div class="nav-logo-icon">🎓</div>
+  <div class="nav-in">
+    <a href="#" class="nav-logo" onclick="goHome();return false">
+      <div class="nav-logo-box">🎓</div>
       <span>تخرج 2027</span>
     </a>
-
-    <ul class="nav-links">
-      <li><a href="#packages">البكجات</a></li>
-      <li><a href="#deposit">العربون</a></li>
-      <li><a href="#robe">الروب</a></li>
-      <li><a href="#register">التسجيل</a></li>
-      <li><a href="#hoodie">الهودي</a></li>
-      <li><a href="#faq">الأسئلة</a></li>
-    </ul>
-
-    <div class="nav-actions">
-      <button class="btn-theme" id="themeBtn" title="تبديل الوضع">🌙</button>
-      <button class="menu-btn" id="menuBtn" aria-label="القائمة">☰</button>
+    <div class="nav-r">
+      <button class="icon-btn" id="themeBtn" title="تبديل الوضع">🌙</button>
     </div>
   </div>
 </nav>
 
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#packages" onclick="closeMobile()">🎁 البكجات والأسعار</a>
-  <a href="#deposit" onclick="closeMobile()">💳 العربون المطلوب</a>
-  <a href="#robe" onclick="closeMobile()">👘 استمارة الروب</a>
-  <a href="#register" onclick="closeMobile()">📝 التسجيل الأساسي</a>
-  <a href="#hoodie" onclick="closeMobile()">🎉 حفلة الهودي</a>
-  <a href="#faq" onclick="closeMobile()">❓ الأسئلة الشائعة</a>
+<main>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-dots"></div>
+  <div class="wrap hero-in">
+    <div class="hero-tag">🎓 دفعة التخرج الرسمية</div>
+    <h1 class="hero-title">منصة تجهيزات<br><span>التخرج 2027</span></h1>
+    <p class="hero-sub">كل تفاصيل التخرج في مكان واحد — اضغط على أي قسم لترى التفاصيل كاملة.</p>
+
+    <div class="hero-pills">
+      <div class="pill">
+        <div class="pill-ico">💰</div>
+        <div>
+          <div class="pill-val">٢٥,٠٠٠ د.ع</div>
+          <div class="pill-lbl">سعر الطالب الواحد</div>
+        </div>
+      </div>
+      <div class="pill">
+        <div class="pill-ico">💳</div>
+        <div>
+          <div class="pill-val">٧,٥٠٠ د.ع</div>
+          <div class="pill-lbl">العربون المطلوب الآن</div>
+        </div>
+      </div>
+      <div class="pill">
+        <div class="pill-ico">✅</div>
+        <div>
+          <div class="pill-val">مفتوح</div>
+          <div class="pill-lbl">الحجز متاح الآن</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOME VIEW ══ -->
+<div id="home-view">
+  <section class="sec">
+    <div class="wrap">
+      <div class="sh reveal">
+        <div class="sh-eye">📌 الأقسام الرئيسية</div>
+        <div class="sh-title">اختر القسم الذي تريده</div>
+        <div class="sh-sub">اضغط على أي بطاقة لتظهر لك جميع التفاصيل بشكل كامل وواضح.</div>
+      </div>
+
+      <div class="card-grid">
+
+        <div class="nav-card blue-accent reveal d1" onclick="showPanel('panel-photo')">
+          <div class="nc-ico blue">📷</div>
+          <div>
+            <div class="nc-title">المصور وعروض الحفلة</div>
+            <div class="nc-desc">تفاصيل الصور، الفيديوهات، الدرون، ومميزات حفلة التخرج</div>
+          </div>
+          <div class="nc-arrow">←</div>
+        </div>
+
+        <div class="nav-card gold-accent reveal d2" onclick="showPanel('panel-deposit')">
+          <div class="nc-ico gold">💳</div>
+          <div>
+            <div class="nc-title">العربون وطريقة الدفع</div>
+            <div class="nc-desc">المبلغ المطلوب الآن وكيفية احتسابه من الإجمالي</div>
+          </div>
+          <div class="nc-arrow">←</div>
+        </div>
+
+        <div class="nav-card purple-accent reveal d3" onclick="showPanel('panel-robe')">
+          <div class="nc-ico purple">👘</div>
+          <div>
+            <div class="nc-title">روب التخرج</div>
+            <div class="nc-desc">تفاصيل الروب، القياسات، الألوان، وملء استمارة الروب</div>
+          </div>
+          <div class="nc-arrow">←</div>
+        </div>
+
+        <div class="nav-card green-accent reveal d1" onclick="showPanel('panel-hoodie')">
+          <div class="nc-ico green">👕</div>
+          <div>
+            <div class="nc-title">حفلة الهودي / السويتر</div>
+            <div class="nc-desc">استمارة الهودي الخاص بالدفعة وتفاصيل الطلب</div>
+          </div>
+          <div class="nc-arrow">←</div>
+        </div>
+
+        <div class="nav-card blue-accent reveal d2" onclick="showPanel('panel-register')">
+          <div class="nc-ico blue">📝</div>
+          <div>
+            <div class="nc-title">التسجيل الرسمي</div>
+            <div class="nc-desc">سجّل مشاركتك الرسمية في تجهيزات التخرج</div>
+          </div>
+          <div class="nc-arrow">←</div>
+        </div>
+
+        <div class="nav-card gold-accent reveal d3" onclick="showPanel('panel-faq')">
+          <div class="nc-ico gold">❓</div>
+          <div>
+            <div class="nc-title">الأسئلة الشائعة</div>
+            <div class="nc-desc">إجابات على أكثر الأسئلة تكراراً — مفيد جداً قبل التسجيل</div>
+          </div>
+          <div class="nc-arrow">←</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 </div>
 
-<main id="top">
+<!-- ══════════════════════════════ -->
+<!-- ══ PANELS ══ -->
+<!-- ══════════════════════════════ -->
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <div class="hero-grid"></div>
-    <div class="hero-inner">
+<!-- ── PHOTOGRAPHER PANEL ── -->
+<div id="panel-photo" class="panel">
+  <section class="sec">
+    <div class="wrap">
+      <div class="panel-back" onclick="goHome()">← رجوع للرئيسية</div>
 
-      <div class="hero-badge">🎓 دفعة التخرج الرسمية</div>
-
-      <h1 class="hero-title">
-        منصة تجهيزات<br>
-        <span>التخرج 2027</span>
-      </h1>
-
-      <p class="hero-desc">
-        كل تفاصيل التخرج، الحجز، الأسعار، الروب، التصوير والمواعيد بمكان واحد — منظم وواضح لكل طالب.
-      </p>
-
-      <!-- Countdown -->
-      <div class="countdown-wrap">
-        <div class="countdown-label">العد التنازلي ليوم التخرج</div>
-        <div class="countdown">
-          <div class="cd-box"><div class="cd-num" id="cd-days">--</div><div class="cd-lbl">يوم</div></div>
-          <div class="cd-box"><div class="cd-num" id="cd-hours">--</div><div class="cd-lbl">ساعة</div></div>
-          <div class="cd-box"><div class="cd-num" id="cd-mins">--</div><div class="cd-lbl">دقيقة</div></div>
-          <div class="cd-box"><div class="cd-num" id="cd-secs">--</div><div class="cd-lbl">ثانية</div></div>
-        </div>
+      <div class="sh">
+        <div class="sh-eye">📷 المصور</div>
+        <div class="sh-title">عروض المصور وحفلة التخرج</div>
+        <div class="sh-sub">عرض شامل من المصور القرغولي — دفعة 2027</div>
       </div>
 
-      <!-- Quick Stats -->
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-icon">💰</div>
-          <div class="hero-stat-val">٧,٥٠٠</div>
-          <div class="hero-stat-lbl">المبلغ المطلوب حالياً (د.ع)</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-icon">📦</div>
-          <div class="hero-stat-val">٢</div>
-          <div class="hero-stat-lbl">عدد البكجات المتاحة</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-icon">✅</div>
-          <div class="hero-stat-val">مفتوحة</div>
-          <div class="hero-stat-lbl">حالة الحجوزات</div>
-          <div class="stat-badge">الحجز متاح الآن</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-icon">📅</div>
-          <div class="hero-stat-val">6 / 1</div>
-          <div class="hero-stat-lbl">تاريخ بدء الحجوزات الرسمية</div>
-        </div>
+      <!-- Price Banner -->
+      <div class="price-banner">
+        <div class="big">٢٥,٠٠٠</div>
+        <div class="lbl"><strong>دينار عراقي</strong> — سعر الطالب الواحد<br>شامل جميع الخدمات أدناه</div>
       </div>
 
-    </div>
-  </section>
+      <div class="detail-grid">
 
-  <!-- ===== PACKAGES ===== -->
-  <section class="section reveal" id="packages">
-    <div class="sec-header">
-      <div class="sec-eyebrow">🎁 الخيارات المتاحة</div>
-      <h2 class="sec-title">البكجات والأسعار</h2>
-      <p class="sec-sub">اختر البكج الذي يناسبك — كل تفاصيل المحتوى والسعر موضحة أدناه بشكل كامل.</p>
-    </div>
-
-    <div class="packages-grid">
-
-      <!-- Package 1 -->
-      <div class="pkg-card featured reveal reveal-d1">
-        <div class="pkg-badge">⭐ الأكثر اختياراً</div>
-        <div class="pkg-header">
-          <div class="pkg-icon" style="background: var(--accent); color: white;">🏆</div>
-          <div class="pkg-name">🔹 البكج الكامل</div>
-          <div style="font-size:0.82rem; color: var(--text-muted); margin-top: 0.2rem;">يشمل جميع التجهيزات</div>
-        </div>
-        <div class="pkg-divider"></div>
-        <div class="pkg-body">
-          <ul class="pkg-items">
-            <li>
-              <div class="pkg-check">✓</div>
-              <div>
-                <div style="font-weight:600; color: var(--text-primary); font-size:0.88rem;">مصور احترافي</div>
-                <div style="font-size:0.75rem; color: var(--text-muted);">جلسة تصوير كاملة</div>
-              </div>
-            </li>
-            <li>
-              <div class="pkg-check">✓</div>
-              <div>
-                <div style="font-weight:600; color: var(--text-primary); font-size:0.88rem;">مسرح التخرج</div>
-                <div style="font-size:0.75rem; color: var(--text-muted);">حجز المسرح الرسمي</div>
-              </div>
-            </li>
-            <li>
-              <div class="pkg-check">✓</div>
-              <div>
-                <div style="font-weight:600; color: var(--text-primary); font-size:0.88rem;">روب التخرج</div>
-                <div style="font-size:0.75rem; color: var(--text-muted);">روب + وشاح + قبعة</div>
-              </div>
-            </li>
-          </ul>
-          <div class="pkg-price-row">
-            <div class="pkg-price">١٠٠,٠٠٠ <span>د.ع</span></div>
-            <button class="btn-pkg btn-pkg-fill">اختيار البكج</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Package 2 -->
-      <div class="pkg-card reveal reveal-d2">
-        <div class="pkg-header">
-          <div class="pkg-icon">📷</div>
-          <div class="pkg-name">🔹 مصور + مسرح فقط</div>
-          <div style="font-size:0.82rem; color: var(--text-muted); margin-top: 0.2rem;">بدون روب من الشركة</div>
-        </div>
-        <div class="pkg-divider"></div>
-        <div class="pkg-body">
-          <ul class="pkg-items">
-            <li>
-              <div class="pkg-check">✓</div>
-              <div>
-                <div style="font-weight:600; color: var(--text-primary); font-size:0.88rem;">مصور احترافي</div>
-                <div style="font-size:0.75rem; color: var(--text-muted);">جلسة تصوير كاملة</div>
-              </div>
-            </li>
-            <li>
-              <div class="pkg-check">✓</div>
-              <div>
-                <div style="font-weight:600; color: var(--text-primary); font-size:0.88rem;">مسرح التخرج</div>
-                <div style="font-size:0.75rem; color: var(--text-muted);">حجز المسرح الرسمي</div>
-              </div>
-            </li>
-          </ul>
-          <div class="pkg-price-row">
-            <div class="pkg-price">٤٠,٠٠٠ <span>د.ع</span></div>
-            <button class="btn-pkg btn-pkg-outline">اختيار البكج</button>
-          </div>
-        </div>
-        <div class="pkg-note">
-          <strong>⚠️ تنبيه مهم:</strong> الروب يكون من تصميمك الخاص، <strong>لكن بشرط الالتزام بنفس ألوان الدفعة ونفس الدرجة</strong> حتى يظهر الشكل موحداً ومرتباً.
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- ===== DEPOSIT ===== -->
-  <section class="section reveal" id="deposit">
-    <div class="sec-header">
-      <div class="sec-eyebrow">💳 الخطوة الأولى</div>
-      <h2 class="sec-title">العربون المطلوب الآن</h2>
-      <p class="sec-sub">لتثبيت حجزك بشكل رسمي، يجب تحويل مبلغ العربون أولاً.</p>
-    </div>
-
-    <div class="deposit-card reveal reveal-d1">
-      <div style="display: flex; align-items: flex-start; gap: 1rem; flex-wrap: wrap;">
-        <div style="flex: 1; min-width: 200px;">
-          <h3>📌 المبلغ المطلوب حالياً</h3>
-          <div class="deposit-amount">٧,٥٠٠ <span>د.ع</span></div>
-          <p class="deposit-desc">
-            حالياً المطلوب من الجميع تحويل مبلغ <strong>٧,٥٠٠ دينار عراقي</strong> وهو عربون حجز المصور والمسرح حتى يتم تثبيت الحجوزات بشكل رسمي.
-          </p>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 0.75rem; flex-shrink: 0; margin-top: 0.5rem;">
-          <div style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 0.85rem 1.1rem; text-align: center;">
-            <div style="font-size: 0.72rem; opacity: 0.7; margin-bottom: 3px;">نوع المبلغ</div>
-            <div style="font-weight: 700; font-size: 0.9rem;">عربون تثبيت</div>
-          </div>
-          <div style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 0.85rem 1.1rem; text-align: center;">
-            <div style="font-size: 0.72rem; opacity: 0.7; margin-bottom: 3px;">الحالة</div>
-            <div style="font-weight: 700; font-size: 0.9rem; color: #86efac;">مفتوح الآن ✓</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- ===== ROBE FORM ===== -->
-  <section class="section reveal" id="robe">
-    <div class="sec-header">
-      <div class="sec-eyebrow">👘 تفاصيل الروب</div>
-      <h2 class="sec-title">استمارة تفاصيل روب التخرج</h2>
-    </div>
-
-    <div class="robe-card reveal reveal-d1">
-      <div class="robe-icon">👘</div>
-      <div class="robe-content">
-        <h3>ملء بيانات روب التخرج الخاص بك</h3>
-        <p>
-          هذه الاستمارة مخصصة لتحديد تفاصيل روب التخرج الخاصة بكل طالب، وتشمل <strong>القياسات، نوع التطريز، لون الوشاح، الاسم المطبوع</strong>، والإضافات الأخرى — وذلك لغرض تنظيم الطلبات وتجهيز الروبات بالشكل النهائي اللائق بالدفعة وتوحيد تفاصيل التخرج.
-        </p>
-        <div style="margin-top: 1.1rem; display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center;">
-          <a href="https://forms.cloud.microsoft/r/10zgbmQT63" target="_blank" rel="noopener" class="btn-purple">
-            👘 فتح استمارة الروب
-          </a>
-          <div class="alert alert-info" style="flex: 1; min-width: 200px;">
-            <span class="alert-icon">ℹ️</span>
-            <span>يُرجى ملء الاستمارة بدقة حتى تكون الروبات بالمواصفات الصحيحة.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- ===== REGISTRATION ===== -->
-  <section class="section reveal" id="register">
-    <div class="sec-header">
-      <div class="sec-eyebrow">📝 التسجيل الرسمي</div>
-      <h2 class="sec-title">التسجيل الأساسي للتخرج</h2>
-      <p class="sec-sub">نحتاج تحديد العدد النهائي للمشاركين لنبدأ التنظيم الرسمي. تسجيلك يضمن مكانك في جميع الترتيبات.</p>
-    </div>
-
-    <div class="reg-grid">
-      <!-- Left column -->
-      <div style="display: flex; flex-direction: column; gap: 1.2rem;">
-
-        <div class="card">
-          <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em;">ما يجري تنظيمه الآن</div>
-          <ul class="timeline">
-            <li class="timeline-item">
-              <div class="tl-dot">📷</div>
-              <div class="tl-content">
-                <div class="tl-title">حجوزات المصورين</div>
-                <div class="tl-sub">تأمين أفضل المصورين للحفل</div>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <div class="tl-dot">📍</div>
-              <div class="tl-content">
-                <div class="tl-title">اللوكيشنات والأماكن</div>
-                <div class="tl-sub">اختيار أماكن التصوير والحفل</div>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <div class="tl-dot">👘</div>
-              <div class="tl-content">
-                <div class="tl-title">مشاغل الروبات والأوشحة</div>
-                <div class="tl-sub">تجهيز الطلبات مع المشاغل</div>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <div class="tl-dot">🎁</div>
-              <div class="tl-content">
-                <div class="tl-title">البكجات والترتيبات</div>
-                <div class="tl-sub">تنسيق جميع تفاصيل التخرج</div>
-              </div>
-            </li>
+        <div class="detail-box">
+          <h4>📸 الصور والطباعة</h4>
+          <ul class="detail-list">
+            <li><div class="dl-dot">✓</div>٣ صور فردية لكل طالب + طباعة + إرسال</li>
+            <li><div class="dl-dot">✓</div>٢ صورة جماعية للقسم مع طباعة</li>
+            <li><div class="dl-dot">✓</div>جدارية قياس ٣٠×٤٠ لكل طالب</li>
           </ul>
         </div>
 
-        <div class="alert alert-warning">
-          <span class="alert-icon">⚠️</span>
-          <div>
-            <strong>التسجيل عبر الإيميل الجامعي حصراً</strong><br>
-            <span style="font-size:0.83rem; margin-top: 3px; display:block;">يُرجى استخدام بريدك الإلكتروني الجامعي عند ملء الاستمارة.</span>
-          </div>
+        <div class="detail-box">
+          <h4>🎬 الفيديوهات والترند</h4>
+          <ul class="detail-list">
+            <li><div class="dl-dot">✓</div>فيديو برومو خاص للنشر</li>
+            <li><div class="dl-dot">✓</div>فيديو كامل للدفعة</li>
+            <li><div class="dl-dot">✓</div>تصوير جوي بطيارة درون</li>
+            <li><div class="dl-dot">✓</div>فيديو الترند الخاص بالقسم</li>
+          </ul>
+        </div>
+
+        <div class="detail-box">
+          <h4>🎉 فعاليات الحفلة</h4>
+          <ul class="detail-list">
+            <li><div class="dl-dot">✓</div>DJ + سيستم صوت كامل (٦ سماعات)</li>
+            <li><div class="dl-dot">✓</div>شعّال أرضية للحفلة الليلية</li>
+            <li><div class="dl-dot">✓</div>فرقة براوية</li>
+            <li><div class="dl-dot">✓</div>ديكورات للصور الفردية</li>
+          </ul>
+        </div>
+
+        <div class="detail-box">
+          <h4>👥 التنظيم والكادر</h4>
+          <ul class="detail-list">
+            <li><div class="dl-dot">✓</div>الدفعة تكون بشكل تنظيم وترتيب كامل</li>
+            <li><div class="dl-dot">✓</div>كادر متخصص يتعامل مع كل طلب</li>
+            <li><div class="dl-dot">✓</div>متابعة كاملة من البداية للنهاية</li>
+          </ul>
         </div>
 
       </div>
 
-      <!-- Right column -->
-      <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+      <div class="alert alert-green" style="margin-top:1.2rem">
+        <span class="alert-ico">💡</span>
+        <span>السعر شامل لجميع ما ذُكر أعلاه — لا توجد تكاليف إضافية خفية.</span>
+      </div>
+    </div>
+  </section>
+</div>
 
-        <div class="date-card" style="background: linear-gradient(135deg, var(--accent-light) 0%, var(--bg-card) 100%); border-color: rgba(37,99,235,0.2);">
-          <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem;">
-            <div style="width:40px; height:40px; border-radius:12px; background: var(--accent); display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:white; flex-shrink:0;">📅</div>
-            <div>
-              <div style="font-size: 0.72rem; color: var(--text-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.08em;">الموعد الرسمي</div>
-              <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent);">يوم 6 / 1</div>
+<!-- ── DEPOSIT PANEL ── -->
+<div id="panel-deposit" class="panel">
+  <section class="sec">
+    <div class="wrap">
+      <div class="panel-back" onclick="goHome()">← رجوع للرئيسية</div>
+
+      <div class="sh">
+        <div class="sh-eye">💳 الدفع</div>
+        <div class="sh-title">العربون وطريقة الدفع</div>
+        <div class="sh-sub">العربون مهم جداً لتثبيت مقعدك — وسيُخصم من الإجمالي لاحقاً.</div>
+      </div>
+
+      <div class="deposit-hero">
+        <h3>📌 المبلغ المطلوب الآن</h3>
+        <div class="dh-amount">٧,٥٠٠ <small>د.ع</small></div>
+        <p class="dh-note">هذا المبلغ هو عربون لحجز مقعدك بشكل رسمي مع المصور والمسرح. بدون العربون لا يمكن تثبيت الحجز.</p>
+        <div class="dh-calc">
+          <div class="dh-calc-box">
+            <div class="val">٢٥,٠٠٠</div>
+            <div class="lbl">إجمالي السعر</div>
+          </div>
+          <div class="arrow-sep">−</div>
+          <div class="dh-calc-box">
+            <div class="val">٧,٥٠٠</div>
+            <div class="lbl">العربون المدفوع</div>
+          </div>
+          <div class="arrow-sep">=</div>
+          <div class="dh-calc-box" style="border:1.5px solid rgba(255,255,255,.4)">
+            <div class="val">١٧,٥٠٠</div>
+            <div class="lbl">الباقي لاحقاً</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert alert-warning" style="margin-top:1rem">
+        <span class="alert-ico">⚠️</span>
+        <div>
+          <strong>ملاحظة مهمة:</strong> العربون يُستقطع من المبلغ الإجمالي وليس مبلغاً إضافياً. أي أنك ستدفع ٧,٥٠٠ الآن ثم ١٧,٥٠٠ لاحقاً ليكتمل المبلغ.
+        </div>
+      </div>
+
+      <div class="box" style="margin-top:1rem">
+        <div style="font-size:.82rem;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.8rem">خطوات الدفع</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">١</div>
+            <div class="step-body">
+              <div class="step-title">حوّل مبلغ ٧,٥٠٠ دينار</div>
+              <div class="step-desc">تحويل العربون لتثبيت حجزك في أقرب وقت</div>
             </div>
           </div>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
-            تبدأ الحجوزات الرسمية يوم <strong style="color: var(--accent);">6/1</strong>، لذلك نحتاج معرفة العدد النهائي المتوقع للمشاركين.
-          </p>
+          <div class="step">
+            <div class="step-num">٢</div>
+            <div class="step-body">
+              <div class="step-title">أرسل إيصال التحويل</div>
+              <div class="step-desc">أرسل صورة الإيصال للمسؤول للتأكيد الرسمي</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">٣</div>
+            <div class="step-body">
+              <div class="step-title">يُثبَّت حجزك رسمياً</div>
+              <div class="step-desc">بعد التأكيد ستكون مسجلاً في قوائم التخرج</div>
+            </div>
+          </div>
         </div>
-
-        <div class="date-card">
-          <div style="font-size: 0.8rem; font-weight: 700; color: var(--green); margin-bottom: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em;">بعد اكتمال العدد سيتم تنظيم</div>
-          <ul class="after-list">
-            <li><div class="after-dot"></div>موعد الصورة الجماعية</li>
-            <li><div class="after-dot"></div>لوكيشن التصوير الرسمي</li>
-            <li><div class="after-dot"></div>لون الروب والوشاح</li>
-            <li><div class="after-dot"></div>تنسيقات الدفعة الكاملة</li>
-            <li><div class="after-dot"></div>تفاصيل وجداول الدفع</li>
-          </ul>
-        </div>
-
-        <div style="text-align: center;">
-          <a href="https://forms.office.com/r/G2iepPtp74" target="_blank" rel="noopener" class="btn-primary" style="width:100%; justify-content:center; padding: 0.85rem 2rem; font-size:1rem;">
-            📝 التسجيل الآن
-          </a>
-          <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.6rem;">يفتح في نافذة جديدة — عبر الإيميل الجامعي فقط</div>
-        </div>
-
       </div>
     </div>
   </section>
+</div>
 
-  <div class="section-divider"></div>
+<!-- ── ROBE PANEL ── -->
+<div id="panel-robe" class="panel">
+  <section class="sec">
+    <div class="wrap">
+      <div class="panel-back" onclick="goHome()">← رجوع للرئيسية</div>
 
-  <!-- ===== HOODIE ===== -->
-  <section class="section reveal" id="hoodie">
-    <div class="sec-header">
-      <div class="sec-eyebrow">🎉 حفلة خاصة</div>
-      <h2 class="sec-title">استمارة حفلة الهودي 2027</h2>
-    </div>
+      <div class="sh">
+        <div class="sh-eye">👘 روب التخرج</div>
+        <div class="sh-title">تفاصيل روب التخرج</div>
+      </div>
 
-    <div class="hoodie-card reveal reveal-d1">
-      <div class="hoodie-icon">🎉</div>
-      <div class="hoodie-content">
-        <h3>حفلة الهودي — الدفعة 2027</h3>
-        <p>
-          سجّل مشاركتك في حفلة الهودي الخاصة بدفعتك لعام 2027. احتفلوا معاً بنهاية مرحلة وبداية مسيرة جديدة.
+      <div class="box">
+        <div class="robe-color-badge">⚠️ شرط موحّد للدفعة</div>
+        <p style="font-size:.88rem;color:var(--t2);line-height:1.7;margin-bottom:1rem">
+          يجب أن يكون روب التخرج متوافقاً مع <strong style="color:var(--t1)">ألوان الدفعة الرسمية</strong> لكي تظهر الصور الجماعية بشكل موحد ومرتب. حتى لو اخترت روباً خاصاً، يجب الالتزام بنفس لون ودرجة الدفعة.
         </p>
-        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
-          <a href="https://forms.microsoft.com/Pages/ResponsePage.aspx?id=SENJFrv1iUWgAW2BlGUszbaq2CxETTxHlmfp5raib9RUMFBaSkVNNzEzQkRKR0FPVE1RUFVJME1ZOC4u" target="_blank" rel="noopener" class="btn-white">
-            🎉 فتح الاستمارة
-          </a>
-          <span style="font-size:0.82rem; opacity:0.7;">يفتح في نافذة جديدة</span>
+        <div class="alert alert-warning" style="margin-top:0">
+          <span class="alert-ico">🎨</span>
+          <span>ستُعلَن الألوان الرسمية للدفعة بعد اكتمال عدد المسجلين — ترقّب الإعلان.</span>
         </div>
+      </div>
+
+      <div class="box" style="margin-top:1rem">
+        <div style="font-size:.82rem;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.8rem">ما تشمله الاستمارة</div>
+        <ul class="detail-list">
+          <li><div class="dl-dot">✓</div>القياسات الشخصية</li>
+          <li><div class="dl-dot">✓</div>نوع التطريز</li>
+          <li><div class="dl-dot">✓</div>لون الوشاح</li>
+          <li><div class="dl-dot">✓</div>الاسم المطبوع على الروب</li>
+          <li><div class="dl-dot">✓</div>الإضافات الأخرى</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:1.3rem">
+        <a href="https://forms.cloud.microsoft/r/10zgbmQT63" target="_blank" rel="noopener" class="btn btn-purple btn-full">
+          👘 فتح استمارة الروب
+        </a>
+        <div style="text-align:center;font-size:.73rem;color:var(--t3);margin-top:.5rem">يفتح في نافذة جديدة</div>
       </div>
     </div>
   </section>
+</div>
 
-  <div class="section-divider"></div>
+<!-- ── HOODIE PANEL ── -->
+<div id="panel-hoodie" class="panel">
+  <section class="sec">
+    <div class="wrap">
+      <div class="panel-back" onclick="goHome()">← رجوع للرئيسية</div>
 
-  <!-- ===== FAQ ===== -->
-  <section class="section reveal" id="faq">
-    <div class="sec-header">
-      <div class="sec-eyebrow">❓ الأسئلة الشائعة</div>
-      <h2 class="sec-title">أسئلة يسألها كثيرون</h2>
-      <p class="sec-sub">إجابات سريعة وواضحة على أكثر الأسئلة تكراراً.</p>
+      <div class="sh">
+        <div class="sh-eye">👕 الهودي</div>
+        <div class="sh-title">حفلة الهودي / السويتر 2027</div>
+        <div class="sh-sub">موضوع مستقل تماماً عن روب التخرج</div>
+      </div>
+
+      <div class="hoodie-card">
+        <div style="position:relative;z-index:1">
+          <div style="font-size:2rem;margin-bottom:.6rem">🎉</div>
+          <h3 style="font-size:1.2rem;font-weight:800;margin-bottom:.5rem">حفلة الهودي — دفعة 2027</h3>
+          <p style="font-size:.85rem;opacity:.78;line-height:1.7;margin-bottom:1.2rem;max-width:420px">
+            سجّل مشاركتك في حفلة الهودي الخاصة بدفعتك. احتفلوا معاً بنهاية مرحلة وبداية مسيرة جديدة.
+          </p>
+          <a href="https://forms.microsoft.com/Pages/ResponsePage.aspx?id=SENJFrv1iUWgAW2BlGUszbaq2CxETTxHlmfp5raib9RUMFBaSkVNNzEzQkRKR0FPVE1RUFVJME1ZOC4u" target="_blank" rel="noopener"
+            style="display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.4rem;background:#fff;color:#6d28d9;border-radius:10px;font-family:var(--font);font-size:.88rem;font-weight:700;text-decoration:none;transition:all var(--tr)"
+            onmouseover="this.style.opacity='.9'" onmouseout="this.style.opacity='1'">
+            🎉 فتح استمارة الهودي
+          </a>
+        </div>
+      </div>
+
+      <div class="alert alert-info" style="margin-top:1rem">
+        <span class="alert-ico">ℹ️</span>
+        <span>الهودي والسويتر موضوع مستقل عن روب التخرج — يمكنك التسجيل في كليهما أو أحدهما حسب رغبتك.</span>
+      </div>
     </div>
-
-    <ul class="faq-list">
-      <li class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>هل التسجيل إجباري للمشاركة في التخرج؟</span>
-          <div class="faq-arrow">▼</div>
-        </div>
-        <div class="faq-a">
-          نعم، التسجيل مطلوب لتأكيد مشاركتك في تجهيزات التخرج وحجز مكانك في جميع الترتيبات الرسمية مثل المسرح والتصوير وإعداد الروب.
-        </div>
-      </li>
-
-      <li class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>هل أستطيع اختيار روب خاص من تصميمي؟</span>
-          <div class="faq-arrow">▼</div>
-        </div>
-        <div class="faq-a">
-          نعم، يمكنك ذلك إذا اخترت البكج الثاني (مصور + مسرح فقط)، <strong>لكن بشرط الالتزام بنفس ألوان الدفعة ونفس درجة اللون</strong> حتى يبقى الشكل موحداً ومرتباً في الصور الجماعية.
-        </div>
-      </li>
-
-      <li class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>هل مبلغ العربون مسترجع في حال الانسحاب؟</span>
-          <div class="faq-arrow">▼</div>
-        </div>
-        <div class="faq-a">
-          يُرجى التواصل مع مسؤول التنظيم مباشرة للاستفسار عن سياسة استرجاع العربون حسب الظروف والحالة الخاصة بك.
-        </div>
-      </li>
-
-      <li class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>هل التسجيل بالإيميل الجامعي فقط أم يمكن استخدام إيميل شخصي؟</span>
-          <div class="faq-arrow">▼</div>
-        </div>
-        <div class="faq-a">
-          التسجيل يكون عبر الإيميل الجامعي حصراً للتحقق من هوية الطالب وضمان أن المسجلين هم فعلاً طلاب الدفعة الحالية.
-        </div>
-      </li>
-
-      <li class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>متى يتم إعلان موعد الصورة الجماعية والتفاصيل الكاملة؟</span>
-          <div class="faq-arrow">▼</div>
-        </div>
-        <div class="faq-a">
-          بعد اكتمال عدد المسجلين وتحديد العدد النهائي للمشاركين، سيتم الإعلان عن جميع التفاصيل بما فيها موعد الصورة، اللوكيشن، ولون الروب والوشاح.
-        </div>
-      </li>
-    </ul>
   </section>
+</div>
+
+<!-- ── REGISTER PANEL ── -->
+<div id="panel-register" class="panel">
+  <section class="sec">
+    <div class="wrap">
+      <div class="panel-back" onclick="goHome()">← رجوع للرئيسية</div>
+
+      <div class="sh">
+        <div class="sh-eye">📝 التسجيل</div>
+        <div class="sh-title">التسجيل الرسمي للتخرج</div>
+        <div class="sh-sub">نحتاج معرفة العدد النهائي لنبدأ تنظيم جميع الترتيبات.</div>
+      </div>
+
+      <div class="box">
+        <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1rem">
+          <div style="width:44px;height:44px;border-radius:13px;background:var(--blue-l);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">📅</div>
+          <div>
+            <div style="font-size:.72rem;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:.08em">الموعد الرسمي</div>
+            <div style="font-size:1.15rem;font-weight:800;color:var(--blue)">تبدأ الحجوزات الرسمية يوم 6/1</div>
+          </div>
+        </div>
+        <p style="font-size:.85rem;color:var(--t2);line-height:1.6">لذلك من المهم تسجيل اسمك الآن لنعرف العدد النهائي قبل أن تبدأ.</p>
+      </div>
+
+      <div class="box" style="margin-top:1rem">
+        <div style="font-size:.82rem;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.8rem">بعد اكتمال العدد سيُنظَّم</div>
+        <div class="steps">
+          <div class="step"><div class="step-num" style="background:var(--green-l);border-color:var(--green);color:var(--green)">📸</div><div class="step-body"><div class="step-title">موعد الصورة الجماعية</div></div></div>
+          <div class="step"><div class="step-num" style="background:var(--green-l);border-color:var(--green);color:var(--green)">📍</div><div class="step-body"><div class="step-title">لوكيشن التصوير الرسمي</div></div></div>
+          <div class="step"><div class="step-num" style="background:var(--green-l);border-color:var(--green);color:var(--green)">🎨</div><div class="step-body"><div class="step-title">لون الروب والوشاح</div></div></div>
+          <div class="step"><div class="step-num" style="background:var(--green-l);border-color:var(--green);color:var(--green)">💰</div><div class="step-body"><div class="step-title">جدول وتفاصيل الدفع</div></div></div>
+        </div>
+      </div>
+
+      <div class="alert alert-warning" style="margin-top:1rem">
+        <span class="alert-ico">⚠️</span>
+        <div><strong>التسجيل عبر الإيميل الجامعي حصراً</strong><br><span style="font-size:.78rem;margin-top:2px;display:block">استخدم بريدك الإلكتروني الجامعي عند فتح الاستمارة.</span></div>
+      </div>
+
+      <div style="margin-top:1.2rem">
+        <a href="https://forms.office.com/r/G2iepPtp74" target="_blank" rel="noopener" class="btn btn-blue btn-full">
+          📝 التسجيل الآن
+        </a>
+        <div style="text-align:center;font-size:.73rem;color:var(--t3);margin-top:.5rem">يفتح في نافذة جديدة — إيميل جامعي فقط</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ── FAQ PANEL ── -->
+<div id="panel-faq" class="panel">
+  <section class="sec">
+    <div class="wrap">
+      <div class="panel-back" onclick="goHome()">← رجوع للرئيسية</div>
+
+      <div class="sh">
+        <div class="sh-eye">❓ الأسئلة الشائعة</div>
+        <div class="sh-title">أسئلة يسألها الجميع</div>
+        <div class="sh-sub">إجابات واضحة على أكثر الأسئلة تكراراً.</div>
+      </div>
+
+      <ul class="faq-list">
+
+        <li class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>كم سعر الطالب الواحد وماذا يشمل؟</span>
+            <div class="faq-arr">▼</div>
+          </div>
+          <div class="faq-a">
+            سعر الطالب الواحد هو <strong>٢٥,٠٠٠ دينار عراقي</strong> شامل: الصور الفردية والطباعة، الصور الجماعية، الجدارية، الفيديوهات، الدرون، DJ وسيستم الصوت، شعّال الأرضية، فرقة براوية، وديكورات الصور الفردية.
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>ما الفرق بين العربون والمبلغ الكامل؟</span>
+            <div class="faq-arr">▼</div>
+          </div>
+          <div class="faq-a">
+            العربون هو <strong>٧,٥٠٠ دينار</strong> تدفعه الآن لتثبيت حجزك. هذا المبلغ ليس إضافياً بل يُخصم من إجمالي <strong>٢٥,٠٠٠ دينار</strong>، فيبقى عليك <strong>١٧,٥٠٠ دينار</strong> تدفعها لاحقاً.
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>هل العربون مسترجع إذا انسحبت؟</span>
+            <div class="faq-arr">▼</div>
+          </div>
+          <div class="faq-a">
+            <!-- يرجى إضافة الإجابة هنا -->
+            [الإجابة ستُضاف من المسؤول]
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>هل التسجيل إجباري للمشاركة؟</span>
+            <div class="faq-arr">▼</div>
+          </div>
+          <div class="faq-a">
+            نعم، التسجيل ضروري لتأكيد مشاركتك وتثبيت اسمك في قوائم التخرج. بدون التسجيل لا يمكن حجز مكانك مع المصور ولا في المسرح.
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>لماذا التسجيل بالإيميل الجامعي فقط؟</span>
+            <div class="faq-arr">▼</div>
+          </div>
+          <div class="faq-a">
+            للتحقق من أن المسجلين هم فعلاً طلاب الدفعة الحالية وتجنب أي ازدواجية أو تسجيلات خاطئة. الإيميل الجامعي يضمن دقة القوائم.
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>ما الفرق بين روب التخرج وحفلة الهودي؟</span>
+            <div class="faq-arr">▼</div>
+          </div>
+          <div class="faq-a">
+            موضوعان مستقلان تماماً. <strong>روب التخرج</strong> هو الزي الرسمي الذي يُرتدى في حفل التخرج ويجب الالتزام بألوان الدفعة. أما <strong>حفلة الهودي / السويتر</strong> فهي فعالية منفصلة للدفعة ولها استمارة مختلفة.
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>هل يمكنني استخدام روب خاص بدلاً من روب الشركة؟</span>
+            <div class="faq-arr">▼</div>
+          </div>
+          <div class="faq-a">
+            نعم يمكنك ذلك، <strong>لكن بشرط</strong> أن يكون بنفس ألوان الدفعة الرسمية ونفس الدرجة حتى تبقى الصور الجماعية موحدة ومرتبة.
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>متى سيُعلَن عن لون الروب ومكان التصوير؟</span>
+            <div class="faq-arr">▼</div>
+          </div>
+          <div class="faq-a">
+            <!-- يرجى إضافة الإجابة هنا -->
+            [الإجابة ستُضاف من المسؤول]
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>هل تصوير الدرون مشمول بالسعر؟</span>
+            <div class="faq-arr">▼</div>
+          </div>
+          <div class="faq-a">
+            نعم، تصوير الدرون (الطيارة) مشمول ضمن سعر الـ٢٥,٠٠٠ دينار بدون أي تكلفة إضافية.
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>إلى من أرسل إيصال العربون بعد التحويل؟</span>
+            <div class="faq-arr">▼</div>
+          </div>
+          <div class="faq-a">
+            <!-- يرجى إضافة الإجابة هنا -->
+            [الإجابة ستُضاف من المسؤول]
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>هل ستكون هناك قسط للدفع أم دفعة واحدة؟</span>
+            <div class="faq-arr">▼</div>
+          </div>
+          <div class="faq-a">
+            <!-- يرجى إضافة الإجابة هنا -->
+            [الإجابة ستُضاف من المسؤول]
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>هل سيكون هناك حفلة تخرج رسمية في قاعة؟</span>
+            <div class="faq-arr">▼</div>
+          </div>
+          <div class="faq-a">
+            <!-- يرجى إضافة الإجابة هنا -->
+            [الإجابة ستُضاف من المسؤول]
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>هل يمكن لأهل الطالب حضور الحفلة؟</span>
+            <div class="faq-arr">▼</div>
+          </div>
+          <div class="faq-a">
+            <!-- يرجى إضافة الإجابة هنا -->
+            [الإجابة ستُضاف من المسؤول]
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>ما هو الموعد المتوقع لحفل التخرج؟</span>
+            <div class="faq-arr">▼</div>
+          </div>
+          <div class="faq-a">
+            <!-- يرجى إضافة الإجابة هنا -->
+            [الإجابة ستُضاف من المسؤول]
+          </div>
+        </li>
+
+      </ul>
+
+      <div class="alert alert-info" style="margin-top:1.2rem">
+        <span class="alert-ico">💬</span>
+        <span>لديك سؤال غير مذكور؟ تواصل مع المسؤول مباشرة.</span>
+      </div>
+    </div>
+  </section>
+</div>
 
 </main>
 
-<!-- ===== FOOTER ===== -->
+<!-- ── FOOTER ── -->
 <footer>
-  <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎓</div>
   <p>صُمم لتنظيم تجهيزات <strong>دفعة التخرج 2027</strong> 🤍</p>
-  <p style="margin-top: 0.35rem; font-size: 0.78rem; opacity:0.6;">جميع الحقوق محفوظة — منصة تجهيزات التخرج 2027</p>
 </footer>
 
 <!-- Back to Top -->
-<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="العودة للأعلى">↑</button>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="للأعلى">↑</button>
 
 <script>
-  /* ===== THEME ===== */
-  const html = document.documentElement;
-  const themeBtn = document.getElementById('themeBtn');
-  const saved = localStorage.getItem('theme') || 'light';
-  html.setAttribute('data-theme', saved);
-  themeBtn.textContent = saved === 'dark' ? '☀️' : '🌙';
+/* THEME */
+const html=document.documentElement,themeBtn=document.getElementById('themeBtn');
+const saved=localStorage.getItem('th')||'light';
+html.setAttribute('data-theme',saved);
+themeBtn.textContent=saved==='dark'?'☀️':'🌙';
+themeBtn.addEventListener('click',()=>{
+  const cur=html.getAttribute('data-theme');
+  const nxt=cur==='dark'?'light':'dark';
+  html.setAttribute('data-theme',nxt);
+  themeBtn.textContent=nxt==='dark'?'☀️':'🌙';
+  localStorage.setItem('th',nxt);
+});
 
-  themeBtn.addEventListener('click', () => {
-    const cur = html.getAttribute('data-theme');
-    const next = cur === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    themeBtn.textContent = next === 'dark' ? '☀️' : '🌙';
-    localStorage.setItem('theme', next);
-  });
+/* NAV SCROLL */
+const navbar=document.getElementById('navbar');
+const btt=document.getElementById('btt');
+window.addEventListener('scroll',()=>{
+  navbar.classList.toggle('scrolled',scrollY>20);
+  btt.classList.toggle('show',scrollY>300);
+},{passive:true});
 
-  /* ===== MOBILE MENU ===== */
-  const menuBtn = document.getElementById('menuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
+/* PANEL NAVIGATION */
+const homeView=document.getElementById('home-view');
+const panels=document.querySelectorAll('.panel');
 
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-    menuBtn.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
-  });
+function showPanel(id){
+  homeView.style.display='none';
+  panels.forEach(p=>p.classList.remove('active'));
+  const p=document.getElementById(id);
+  if(p){p.classList.add('active')}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 
-  function closeMobile() {
-    mobileMenu.classList.remove('open');
-    menuBtn.textContent = '☰';
-  }
+function goHome(){
+  homeView.style.display='';
+  panels.forEach(p=>p.classList.remove('active'));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 
-  /* ===== NAV SCROLL ===== */
-  const navbar = document.getElementById('navbar');
-  const backTop = document.getElementById('back-top');
+/* FAQ */
+function toggleFaq(el){
+  const item=el.closest('.faq-item');
+  const open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!open) item.classList.add('open');
+}
 
-  window.addEventListener('scroll', () => {
-    const s = window.scrollY;
-    navbar.classList.toggle('scrolled', s > 20);
-    backTop.classList.toggle('visible', s > 300);
-  }, { passive: true });
-
-  /* ===== FAQ ACCORDION ===== */
-  function toggleFaq(el) {
-    const item = el.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  }
-
-  /* ===== COUNTDOWN ===== */
-  const grad = new Date('2027-06-15T10:00:00');
-
-  function updateCD() {
-    const diff = grad - new Date();
-    if (diff <= 0) {
-      document.getElementById('cd-days').textContent = '٠';
-      document.getElementById('cd-hours').textContent = '٠';
-      document.getElementById('cd-mins').textContent = '٠';
-      document.getElementById('cd-secs').textContent = '٠';
-      return;
-    }
-    const days = Math.floor(diff / 86400000);
-    const hrs  = Math.floor((diff % 86400000) / 3600000);
-    const mins = Math.floor((diff % 3600000) / 60000);
-    const secs = Math.floor((diff % 60000) / 1000);
-
-    const toAr = n => n.toString().replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
-    document.getElementById('cd-days').textContent  = toAr(days);
-    document.getElementById('cd-hours').textContent = toAr(hrs);
-    document.getElementById('cd-mins').textContent  = toAr(mins);
-    document.getElementById('cd-secs').textContent  = toAr(secs);
-  }
-
-  updateCD();
-  setInterval(updateCD, 1000);
-
-  /* ===== SCROLL REVEAL ===== */
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  /* ===== SMOOTH CLOSE MENU ON SCROLL ===== */
-  window.addEventListener('scroll', () => {
-    if (mobileMenu.classList.contains('open')) closeMobile();
-  }, { passive: true });
+/* REVEAL ON SCROLL */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
-
 </body>
 </html>

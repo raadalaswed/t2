@@ -599,7 +599,7 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
         <span class="alert-ico">⚠️</span>
         <div>
           <strong>التأخير بالدفع = إلغاء التسجيل</strong><br>
-          <span style="font-size:.78rem;margin-top:2px;display:block">يرجى تحويل العربون خلال يومين من التسجيل حتى لا يُلغى اسمك من القائمة.</span>
+          <span style="font-size:.78rem;margin-top:2px;display:block">يرجى تحويل العربون قبل تاريخ 30/5/2026 قبل ال 10:00 م لتاكيد الحجز وحتى لا يُلغى اسمك من القائمة.</span>
         </div>
       </div>
 
@@ -740,7 +740,7 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
           <div style="width:44px;height:44px;border-radius:13px;background:var(--blue-l);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">📅</div>
           <div>
             <div style="font-size:.72rem;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:.08em">الموعد والمكان</div>
-            <div style="font-size:1.05rem;font-weight:800;color:var(--blue)">مسرح النخيل — شهر ديسمبر ٢٠٢٧</div>
+            <div style="font-size:1.05rem;font-weight:800;color:var(--blue)">مسرح النخيل — شهر ديسمبر 2026</div>
           </div>
         </div>
         <p style="font-size:.85rem;color:var(--t2);line-height:1.6">الحجوزات الرسمية تبدأ يوم <strong>6/1</strong> — سجّل اسمك الآن لضمان مكانك وتحديد العدد النهائي.</p>
@@ -766,7 +766,7 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
           <div class="step">
             <div class="step-num">٣</div>
             <div class="step-body">
-              <div class="step-title">حوّل العربون خلال يومين</div>
+              <div class="step-title">حوّل العربون قبل 30/5/2026 الساعة 10:00 م</div>
               <div class="step-desc">٧,٥٠٠ دينار على سوبر كي: <span style="font-weight:800;direction:ltr;display:inline-block">07725352557</span></div>
             </div>
           </div>
@@ -901,19 +901,53 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
             نعم، تصوير الدرون (الطيارة) مشمول ضمن سعر المصور (٢٥,٠٠٠ دينار) بدون أي تكلفة إضافية.
           </div>
         </li>
+```html
+<li class="faq-item">
+  <div class="faq-q" onclick="toggleFaq(this)">
+    <span>إلى أين أرسل إيصال العربون بعد التحويل؟</span>
+    <div class="faq-arr">▼</div>
+  </div>
 
-        <li class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span>إلى أين أرسل إيصال العربون بعد التحويل؟</span>
-            <div class="faq-arr">▼</div>
-          </div>
-          <div class="faq-a">ام (أر
-            بعد التحويل يتم ارسال الوصل الى المنسق عبر التليكرام 
-T.me/yasser_zaid02 
-ويتم ذكر اسم الطالب الثلاثي ورقم الهاتف والشعبة ونوع الباقه المشارك بها 
-كاملة او جزئية <strong style="direction:ltr;display:inline-block">07725352557</strong>
-          </div>
-        </li>
+  <div class="faq-a">
+    <p>تم إرسال الوصل إلى المنسق عبر التليكرام</p>
+
+    <a href="https://t.me/yasser_zaid02" target="_blank" class="telegram-btn">
+      T.me/yasser_zaid02
+    </a>
+
+    <p>
+      ويتم ذكر اسم الطالب الثلاثي ورقم الهاتف والشعبة ونوع الباقة المشارك بها<br>
+      كاملة أو جزئية
+    </p>
+
+    <p>
+      أو التواصل عبر الرقم:
+      <strong style="direction:ltr; display:inline-block;">
+        07725352557
+      </strong>
+    </p>
+  </div>
+</li>
+
+<style>
+.telegram-btn{
+    display:inline-block;
+    background:#0088cc;
+    color:white;
+    padding:12px 20px;
+    border-radius:10px;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.telegram-btn:hover{
+    transform:scale(1.05);
+}
+</style>
+```
+
 
         <li class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">

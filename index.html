@@ -308,7 +308,7 @@ main{padding-top:var(--nav)}
   transition:max-height .38s ease,padding .28s ease;
   font-size:.83rem;color:var(--t2);line-height:1.7;
 }
-.faq-item.open .faq-a{max-height:220px;padding:0 1.15rem 1rem}
+.faq-item.open .faq-a{max-height:400px;padding:0 1.15rem 1rem}
 
 /* ── FOOTER ── */
 footer{text-align:center;padding:2rem 1.4rem;border-top:1px solid var(--bd)}
@@ -385,8 +385,8 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
       <div class="pill">
         <div class="pill-ico">💰</div>
         <div>
-          <div class="pill-val">٢٥,٠٠٠ د.ع</div>
-          <div class="pill-lbl">سعر الطالب الواحد</div>
+          <div class="pill-val">٤٠,٠٠٠ د.ع</div>
+          <div class="pill-lbl">إجمالي السعر للطالب</div>
         </div>
       </div>
       <div class="pill">
@@ -397,10 +397,10 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
         </div>
       </div>
       <div class="pill">
-        <div class="pill-ico">✅</div>
+        <div class="pill-ico">🏛️</div>
         <div>
-          <div class="pill-val">مفتوح</div>
-          <div class="pill-lbl">الحجز متاح الآن</div>
+          <div class="pill-val">مسرح النخيل</div>
+          <div class="pill-lbl">مكان الحفل — شهر ١٢</div>
         </div>
       </div>
     </div>
@@ -496,8 +496,19 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
 
       <!-- Price Banner -->
       <div class="price-banner">
-        <div class="big">٢٥,٠٠٠</div>
-        <div class="lbl"><strong>دينار عراقي</strong> — سعر الطالب الواحد<br>شامل جميع الخدمات أدناه</div>
+        <div class="big">٤٠,٠٠٠</div>
+        <div class="lbl"><strong>دينار عراقي</strong> — إجمالي سعر الطالب الواحد<br>يشمل: ٢٥,٠٠٠ للمصور + ١٥,٠٠٠ حجز مسرح النخيل</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem">
+        <div class="detail-box" style="text-align:center">
+          <div style="font-size:1.5rem;font-weight:900;color:var(--blue)">٢٥,٠٠٠</div>
+          <div style="font-size:.75rem;color:var(--t2);margin-top:3px">📷 حجز المصور</div>
+        </div>
+        <div class="detail-box" style="text-align:center">
+          <div style="font-size:1.5rem;font-weight:900;color:var(--purple)">١٥,٠٠٠</div>
+          <div style="font-size:.75rem;color:var(--t2);margin-top:3px">🏛️ حجز مسرح النخيل</div>
+        </div>
       </div>
 
       <div class="detail-grid">
@@ -563,22 +574,22 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
       </div>
 
       <div class="deposit-hero">
-        <h3>📌 المبلغ المطلوب الآن</h3>
+        <h3>📌 العربون المطلوب الآن</h3>
         <div class="dh-amount">٧,٥٠٠ <small>د.ع</small></div>
-        <p class="dh-note">هذا المبلغ هو عربون لحجز مقعدك بشكل رسمي مع المصور والمسرح. بدون العربون لا يمكن تثبيت الحجز.</p>
+        <p class="dh-note">هذا المبلغ عربون من أصل <strong>٤٠,٠٠٠ دينار</strong> — يُدفع الآن لتثبيت حجزك رسمياً مع المصور ومسرح النخيل. بدون العربون لا يمكن تثبيت الحجز.</p>
         <div class="dh-calc">
           <div class="dh-calc-box">
-            <div class="val">٢٥,٠٠٠</div>
-            <div class="lbl">إجمالي السعر</div>
+            <div class="val">٤٠,٠٠٠</div>
+            <div class="lbl">الإجمالي الكامل</div>
           </div>
           <div class="arrow-sep">−</div>
           <div class="dh-calc-box">
             <div class="val">٧,٥٠٠</div>
-            <div class="lbl">العربون المدفوع</div>
+            <div class="lbl">العربون الآن</div>
           </div>
           <div class="arrow-sep">=</div>
           <div class="dh-calc-box" style="border:1.5px solid rgba(255,255,255,.4)">
-            <div class="val">١٧,٥٠٠</div>
+            <div class="val">٣٢,٥٠٠</div>
             <div class="lbl">الباقي لاحقاً</div>
           </div>
         </div>
@@ -587,32 +598,45 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
       <div class="alert alert-warning" style="margin-top:1rem">
         <span class="alert-ico">⚠️</span>
         <div>
-          <strong>ملاحظة مهمة:</strong> العربون يُستقطع من المبلغ الإجمالي وليس مبلغاً إضافياً. أي أنك ستدفع ٧,٥٠٠ الآن ثم ١٧,٥٠٠ لاحقاً ليكتمل المبلغ.
+          <strong>التأخير بالدفع = إلغاء التسجيل</strong><br>
+          <span style="font-size:.78rem;margin-top:2px;display:block">يرجى تحويل العربون خلال يومين من التسجيل حتى لا يُلغى اسمك من القائمة.</span>
         </div>
       </div>
 
       <div class="box" style="margin-top:1rem">
-        <div style="font-size:.82rem;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.8rem">خطوات الدفع</div>
+        <div style="font-size:.82rem;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem">خطوات الدفع — اتبعها بالترتيب</div>
         <div class="steps">
           <div class="step">
             <div class="step-num">١</div>
             <div class="step-body">
-              <div class="step-title">حوّل مبلغ ٧,٥٠٠ دينار</div>
-              <div class="step-desc">تحويل العربون لتثبيت حجزك في أقرب وقت</div>
+              <div class="step-title">سجّل في الاستمارة أولاً</div>
+              <div class="step-desc">أكمل استمارة التسجيل عبر الإيميل الجامعي — <a href="https://forms.office.com/r/G2iepPtp74" target="_blank" rel="noopener" style="color:var(--blue);font-weight:700">افتح الاستمارة</a></div>
             </div>
           </div>
           <div class="step">
             <div class="step-num">٢</div>
             <div class="step-body">
-              <div class="step-title">أرسل إيصال التحويل</div>
-              <div class="step-desc">أرسل صورة الإيصال للمسؤول للتأكيد الرسمي</div>
+              <div class="step-title">صوّت على لون الروب</div>
+              <div class="step-desc">بعد التسجيل سيصلك رابط التصويت على لون الروب عبر الإيميل — أكمله قبل الدفع</div>
             </div>
           </div>
           <div class="step">
             <div class="step-num">٣</div>
             <div class="step-body">
-              <div class="step-title">يُثبَّت حجزك رسمياً</div>
-              <div class="step-desc">بعد التأكيد ستكون مسجلاً في قوائم التخرج</div>
+              <div class="step-title">حوّل ٧,٥٠٠ دينار على سوبر كي</div>
+              <div class="step-desc">
+                خلال يومين من التسجيل — رقم التحويل:
+                <span style="display:inline-flex;align-items:center;gap:.4rem;margin-top:.35rem;background:var(--card2);border:1px solid var(--bd2);border-radius:8px;padding:.3rem .65rem;font-weight:800;font-size:.88rem;color:var(--t1);direction:ltr">
+                  📱 07725352557
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">٤</div>
+            <div class="step-body">
+              <div class="step-title">أرسل إيصال التحويل للمسؤول</div>
+              <div class="step-desc">أرسل صورة الإيصال لأحد أعضاء اللجنة عبر التيليغرام لتأكيد تثبيت حجزك</div>
             </div>
           </div>
         </div>
@@ -715,20 +739,37 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
         <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1rem">
           <div style="width:44px;height:44px;border-radius:13px;background:var(--blue-l);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">📅</div>
           <div>
-            <div style="font-size:.72rem;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:.08em">الموعد الرسمي</div>
-            <div style="font-size:1.15rem;font-weight:800;color:var(--blue)">تبدأ الحجوزات الرسمية يوم 6/1</div>
+            <div style="font-size:.72rem;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:.08em">الموعد والمكان</div>
+            <div style="font-size:1.05rem;font-weight:800;color:var(--blue)">مسرح النخيل — شهر ديسمبر ٢٠٢٧</div>
           </div>
         </div>
-        <p style="font-size:.85rem;color:var(--t2);line-height:1.6">لذلك من المهم تسجيل اسمك الآن لنعرف العدد النهائي قبل أن تبدأ.</p>
+        <p style="font-size:.85rem;color:var(--t2);line-height:1.6">الحجوزات الرسمية تبدأ يوم <strong>6/1</strong> — سجّل اسمك الآن لضمان مكانك وتحديد العدد النهائي.</p>
       </div>
 
       <div class="box" style="margin-top:1rem">
-        <div style="font-size:.82rem;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.8rem">بعد اكتمال العدد سيُنظَّم</div>
+        <div style="font-size:.82rem;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.8rem">خطوات التسجيل بالترتيب</div>
         <div class="steps">
-          <div class="step"><div class="step-num" style="background:var(--green-l);border-color:var(--green);color:var(--green)">📸</div><div class="step-body"><div class="step-title">موعد الصورة الجماعية</div></div></div>
-          <div class="step"><div class="step-num" style="background:var(--green-l);border-color:var(--green);color:var(--green)">📍</div><div class="step-body"><div class="step-title">لوكيشن التصوير الرسمي</div></div></div>
-          <div class="step"><div class="step-num" style="background:var(--green-l);border-color:var(--green);color:var(--green)">🎨</div><div class="step-body"><div class="step-title">لون الروب والوشاح</div></div></div>
-          <div class="step"><div class="step-num" style="background:var(--green-l);border-color:var(--green);color:var(--green)">💰</div><div class="step-body"><div class="step-title">جدول وتفاصيل الدفع</div></div></div>
+          <div class="step">
+            <div class="step-num">١</div>
+            <div class="step-body">
+              <div class="step-title">أكمل استمارة التسجيل</div>
+              <div class="step-desc">عبر الإيميل الجامعي — لتحديد عدد المشاركين</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">٢</div>
+            <div class="step-body">
+              <div class="step-title">صوّت على لون الروب</div>
+              <div class="step-desc">رابط التصويت سيصلك عبر الإيميل بعد التسجيل مباشرة</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">٣</div>
+            <div class="step-body">
+              <div class="step-title">حوّل العربون خلال يومين</div>
+              <div class="step-desc">٧,٥٠٠ دينار على سوبر كي: <span style="font-weight:800;direction:ltr;display:inline-block">07725352557</span></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -763,11 +804,11 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
 
         <li class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">
-            <span>كم سعر الطالب الواحد وماذا يشمل؟</span>
+            <span>كم إجمالي السعر وماذا يشمل؟</span>
             <div class="faq-arr">▼</div>
           </div>
           <div class="faq-a">
-            سعر الطالب الواحد هو <strong>٢٥,٠٠٠ دينار عراقي</strong> شامل: الصور الفردية والطباعة، الصور الجماعية، الجدارية، الفيديوهات، الدرون، DJ وسيستم الصوت، شعّال الأرضية، فرقة براوية، وديكورات الصور الفردية.
+            إجمالي سعر الطالب الواحد هو <strong>٤٠,٠٠٠ دينار عراقي</strong> يشمل: ٢٥,٠٠٠ للمصور (صور فردية وجماعية، جدارية، فيديوهات، درون، DJ، شعّال أرضية، فرقة براوية) + ١٥,٠٠٠ حجز مسرح النخيل.
           </div>
         </li>
 
@@ -777,7 +818,7 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
             <div class="faq-arr">▼</div>
           </div>
           <div class="faq-a">
-            العربون هو <strong>٧,٥٠٠ دينار</strong> تدفعه الآن لتثبيت حجزك. هذا المبلغ ليس إضافياً بل يُخصم من إجمالي <strong>٢٥,٠٠٠ دينار</strong>، فيبقى عليك <strong>١٧,٥٠٠ دينار</strong> تدفعها لاحقاً.
+            العربون هو <strong>٧,٥٠٠ دينار</strong> تدفعه الآن لتثبيت حجزك. يُخصم من إجمالي <strong>٤٠,٠٠٠ دينار</strong>، فيبقى عليك <strong>٣٢,٥٠٠ دينار</strong> تدفعها لاحقاً. العربون ليس إضافياً بل جزء من الإجمالي.
           </div>
         </li>
 
@@ -787,7 +828,6 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
             <div class="faq-arr">▼</div>
           </div>
           <div class="faq-a">
-            <!-- يرجى إضافة الإجابة هنا -->
             [الإجابة ستُضاف من المسؤول]
           </div>
         </li>
@@ -798,7 +838,7 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
             <div class="faq-arr">▼</div>
           </div>
           <div class="faq-a">
-            نعم، التسجيل ضروري لتأكيد مشاركتك وتثبيت اسمك في قوائم التخرج. بدون التسجيل لا يمكن حجز مكانك مع المصور ولا في المسرح.
+            نعم، التسجيل ضروري لتأكيد مشاركتك وتثبيت اسمك في قوائم التخرج. بدون التسجيل لا يمكن حجز مكانك مع المصور ولا في مسرح النخيل.
           </div>
         </li>
 
@@ -818,7 +858,7 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
             <div class="faq-arr">▼</div>
           </div>
           <div class="faq-a">
-            موضوعان مستقلان تماماً. <strong>روب التخرج</strong> هو الزي الرسمي الذي يُرتدى في حفل التخرج ويجب الالتزام بألوان الدفعة. أما <strong>حفلة الهودي / السويتر</strong> فهي فعالية منفصلة للدفعة ولها استمارة مختلفة.
+            موضوعان مستقلان تماماً. <strong>روب التخرج</strong> هو الزي الرسمي ليوم الحفل ويجب الالتزام بألوان الدفعة. أما <strong>الهودي / السويتر</strong> فهو فعالية منفصلة لها استمارة مختلفة لا علاقة لها بالروب.
           </div>
         </li>
 
@@ -834,12 +874,21 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
 
         <li class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">
-            <span>متى سيُعلَن عن لون الروب ومكان التصوير؟</span>
+            <span>متى وأين سيكون حفل التخرج؟</span>
             <div class="faq-arr">▼</div>
           </div>
           <div class="faq-a">
-            <!-- يرجى إضافة الإجابة هنا -->
-            [الإجابة ستُضاف من المسؤول]
+            الحفل سيكون في <strong>مسرح النخيل</strong>، والموعد المتوقع خلال <strong>شهر ديسمبر (١٢) ٢٠٢٧</strong>. سيُعلَن عن الموعد الدقيق بعد اكتمال التسجيلات وتثبيت الحجوزات.
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>هل يُسمح لعائلة الطالب بحضور الحفلة؟</span>
+            <div class="faq-arr">▼</div>
+          </div>
+          <div class="faq-a">
+            نعم، حضور العائلة مسموح به في حفل التخرج.
           </div>
         </li>
 
@@ -849,62 +898,69 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
             <div class="faq-arr">▼</div>
           </div>
           <div class="faq-a">
-            نعم، تصوير الدرون (الطيارة) مشمول ضمن سعر الـ٢٥,٠٠٠ دينار بدون أي تكلفة إضافية.
+            نعم، تصوير الدرون (الطيارة) مشمول ضمن سعر المصور (٢٥,٠٠٠ دينار) بدون أي تكلفة إضافية.
           </div>
         </li>
 
         <li class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">
-            <span>إلى من أرسل إيصال العربون بعد التحويل؟</span>
+            <span>إلى أين أرسل إيصال العربون بعد التحويل؟</span>
             <div class="faq-arr">▼</div>
           </div>
           <div class="faq-a">
-            <!-- يرجى إضافة الإجابة هنا -->
+            بعد التحويل أرسل صورة الإيصال لأي عضو من اللجنة المنسقة عبر التيليغرام (أرقامهم في آخر هذه الصفحة). تأكد أن تسجّل أولاً في استمارة التسجيل، ثم تصوّت على لون الروب عبر الرابط الذي سيصلك بالإيميل، ثم تحوّل العربون على سوبر كي: <strong style="direction:ltr;display:inline-block">07725352557</strong>
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>متى سيُعلَن عن لون الروب ومكان التصوير؟</span>
+            <div class="faq-arr">▼</div>
+          </div>
+          <div class="faq-a">
             [الإجابة ستُضاف من المسؤول]
           </div>
         </li>
 
         <li class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">
-            <span>هل ستكون هناك قسط للدفع أم دفعة واحدة؟</span>
+            <span>تواصل مع اللجنة المنسقة</span>
             <div class="faq-arr">▼</div>
           </div>
-          <div class="faq-a">
-            <!-- يرجى إضافة الإجابة هنا -->
-            [الإجابة ستُضاف من المسؤول]
-          </div>
-        </li>
-
-        <li class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span>هل سيكون هناك حفلة تخرج رسمية في قاعة؟</span>
-            <div class="faq-arr">▼</div>
-          </div>
-          <div class="faq-a">
-            <!-- يرجى إضافة الإجابة هنا -->
-            [الإجابة ستُضاف من المسؤول]
-          </div>
-        </li>
-
-        <li class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span>هل يمكن لأهل الطالب حضور الحفلة؟</span>
-            <div class="faq-arr">▼</div>
-          </div>
-          <div class="faq-a">
-            <!-- يرجى إضافة الإجابة هنا -->
-            [الإجابة ستُضاف من المسؤول]
-          </div>
-        </li>
-
-        <li class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span>ما هو الموعد المتوقع لحفل التخرج؟</span>
-            <div class="faq-arr">▼</div>
-          </div>
-          <div class="faq-a">
-            <!-- يرجى إضافة الإجابة هنا -->
-            [الإجابة ستُضاف من المسؤول]
+          <div class="faq-a" style="max-height:none!important">
+            <div style="padding-bottom:.5rem">للاستفسارات والأخطاء والأمور المهمة، تواصل مع أحد أعضاء اللجنة عبر تيليغرام:</div>
+            <div style="display:flex;flex-direction:column;gap:.55rem;padding-bottom:.5rem">
+              <a href="https://t.me/yasser_zaid02" target="_blank" rel="noopener"
+                style="display:flex;align-items:center;gap:.65rem;padding:.6rem .9rem;background:var(--blue-l);border:1px solid rgba(37,99,235,.15);border-radius:10px;text-decoration:none;transition:all var(--tr)"
+                onmouseover="this.style.background='var(--blue)';this.style.color='#fff';this.querySelectorAll('span').forEach(s=>s.style.color='rgba(255,255,255,.8)')"
+                onmouseout="this.style.background='var(--blue-l)';this.style.color='';this.querySelectorAll('span').forEach(s=>s.style.color='')">
+                <div style="width:34px;height:34px;border-radius:9px;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#fff;flex-shrink:0">✈️</div>
+                <div>
+                  <div style="font-weight:700;font-size:.85rem;color:var(--t1)">ياسر زيد</div>
+                  <span style="font-size:.75rem;color:var(--t3);direction:ltr;display:block">@yasser_zaid02</span>
+                </div>
+              </a>
+              <a href="https://t.me/Eng_Abdullah98" target="_blank" rel="noopener"
+                style="display:flex;align-items:center;gap:.65rem;padding:.6rem .9rem;background:var(--blue-l);border:1px solid rgba(37,99,235,.15);border-radius:10px;text-decoration:none;transition:all var(--tr)"
+                onmouseover="this.style.background='var(--blue)';this.style.color='#fff';this.querySelectorAll('span').forEach(s=>s.style.color='rgba(255,255,255,.8)')"
+                onmouseout="this.style.background='var(--blue-l)';this.style.color='';this.querySelectorAll('span').forEach(s=>s.style.color='')">
+                <div style="width:34px;height:34px;border-radius:9px;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#fff;flex-shrink:0">✈️</div>
+                <div>
+                  <div style="font-weight:700;font-size:.85rem;color:var(--t1)">عبدالله عزيز</div>
+                  <span style="font-size:.75rem;color:var(--t3);direction:ltr;display:block">@Eng_Abdullah98</span>
+                </div>
+              </a>
+              <a href="https://t.me/raad2a" target="_blank" rel="noopener"
+                style="display:flex;align-items:center;gap:.65rem;padding:.6rem .9rem;background:var(--blue-l);border:1px solid rgba(37,99,235,.15);border-radius:10px;text-decoration:none;transition:all var(--tr)"
+                onmouseover="this.style.background='var(--blue)';this.style.color='#fff';this.querySelectorAll('span').forEach(s=>s.style.color='rgba(255,255,255,.8)')"
+                onmouseout="this.style.background='var(--blue-l)';this.style.color='';this.querySelectorAll('span').forEach(s=>s.style.color='')">
+                <div style="width:34px;height:34px;border-radius:9px;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#fff;flex-shrink:0">✈️</div>
+                <div>
+                  <div style="font-weight:700;font-size:.85rem;color:var(--t1)">رعد عبدالله</div>
+                  <span style="font-size:.75rem;color:var(--t3);direction:ltr;display:block">@raad2a</span>
+                </div>
+              </a>
+            </div>
           </div>
         </li>
 
@@ -912,7 +968,7 @@ hr.div{border:none;border-top:1px solid var(--bd);margin:0}
 
       <div class="alert alert-info" style="margin-top:1.2rem">
         <span class="alert-ico">💬</span>
-        <span>لديك سؤال غير مذكور؟ تواصل مع المسؤول مباشرة.</span>
+        <span>لديك سؤال غير مذكور؟ افتح آخر سؤال في الأعلى للتواصل مع اللجنة مباشرة عبر تيليغرام.</span>
       </div>
     </div>
   </section>
@@ -959,7 +1015,8 @@ function showPanel(id){
   panels.forEach(p=>p.classList.remove('active'));
   const p=document.getElementById(id);
   if(p){p.classList.add('active')}
-  window.scrollTo({top:0,behavior:'smooth'});
+  const navH=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav'))||64;
+  window.scrollTo({top:navH,behavior:'smooth'});
 }
 
 function goHome(){
